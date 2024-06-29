@@ -4,13 +4,13 @@ const { withPlausibleProxy } = require("next-plausible");
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const contentSecurityPolicy = `
-  img-src 'self';
+  img-src 'self' https://avatars.githubusercontent.com;
   font-src 'self' https://fonts.gstatic.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   worker-src 'self' blob:;
   object-src 'none';
   script-src 'self' 'unsafe-eval' 'unsafe-inline';
-  connect-src 'self';
+  connect-src 'self' https://api.github.com;
   report-to csp-endpoint;
   report-uri https://o4505897577414656.ingest.sentry.io/api/4507515658633216/security/?sentry_key=aedf98be74b399f0ad188a7bbc6419a3;
   upgrade-insecure-requests;

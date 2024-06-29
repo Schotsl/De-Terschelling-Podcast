@@ -46,15 +46,15 @@ collections:
           media_folder: "/public/content/podcast/cover",
           public_folder: "/content/podcast/cover",
         }
-      }
       - { name: "explicit", label: "Explicit", widget: "boolean" }
-      - { 
+      - {
           name: "type",
           label: "Type",
           widget: "select",
-          options: [
-            { label: "Full", value: "full" },
-            { label: "Trailer", value: "trailer" },
-            { label: "Bonus", value: "bonus" }
-          ]
+          options:
+            [
+              { label: "Full", value: "full" },
+              { label: "Trailer", value: "trailer" },
+              { label: "Bonus", value: "bonus" },
+            ],
         }

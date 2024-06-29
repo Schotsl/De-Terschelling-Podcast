@@ -1,0 +1,98 @@
+@import "@/styles/variables.scss";
+@import "@/styles/mixins.scss";
+
+body,
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #000;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  @include respond-to-md {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  @include respond-to-md {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  margin: 0.25rem 0;
+}
+
+button {
+  border: none;
+  background: 0;
+}
+
+ul,
+li,
+ol,
+menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #2e2e2e;
+
+  &:hover {
+    color: #000;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  // --padding-vertical:
+  // --padding-horizontal:
+}
+
+@include respond-to-md {
+  :root {
+    // --padding-vertical:
+    // --padding-horizontal:
+  }
+}
+
+@include respond-to-sm {
+  :root {
+    // --padding-vertical:
+    // --padding-horizontal:
+  }
+}

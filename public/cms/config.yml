@@ -1,0 +1,228 @@
+backend:
+  name: github
+  repo: schotsl/de-terschelling-podcast
+
+  base_url: https://de-terschelling-podcast.vercel.app/
+  auth_endpoint: api/auth
+
+  commit_messages:
+    create: 📝 Created {{collection}} collection
+    update: 📝 Updated {{collection}} collection
+    delete: 🔥 Deleted {{collection}} collection
+    uploadMedia: 🍱 Uploaded “{{path}}”
+    deleteMedia: 🔥 Deleted “{{path}}”
+    openAuthoring: "{{message}}"
+
+media_folder: "/content/images"
+public_folder: "/content/images"
+
+site_url: "https://de-terschelling-podcast.vercel.app/"
+logo_url: "https://de-terschelling-podcast.vercel.app/favicon-600x600.png"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    editor: { preview: false }
+    files:
+      - name: "home"
+        file: "public/content/pages/home/index.json"
+        label: "Home"
+        extension: "json"
+        fields:
+          - name: "banner"
+            label: "Banner"
+            widget: "object"
+            fields:
+              - name: taglines
+                label: Taglines
+                widget: list
+                fields:
+                  - { name: "tagline", label: "Tagline", widget: "string" }
+              - name: "projects"
+                label: "Projects"
+                widget: "list"
+                summary: "{{fields.project}}"
+                fields:
+                  - {
+                      name: "project",
+                      label: "Project",
+                      widget: "relation",
+                      collection: "project",
+                      value_field: "slug",
+                      search_fields: ["title"],
+                      display_fields: ["title"],
+                    }
+          - name: "about"
+            label: "About"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "content", label: "Content", widget: "markdown" }
+              - name: "image"
+                label: "Image"
+                widget: "object"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { name: "alt", label: "Alt", widget: "string" }
+                  - {
+                      name: "src",
+                      label: "Image",
+                      widget: "image",
+                      choose_url: false,
+                      media_folder: "/public/content/pages/home/images",
+                      public_folder: "/content/pages/home/images",
+                    }
+          - name: "project"
+            label: "Project"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "content", label: "Content", widget: "markdown" }
+
+      - name: "not_found"
+        file: "public/content/pages/not_found/index.json"
+        label: "404"
+        extension: "json"
+        fields:
+          - name: "banner"
+            label: "Banner"
+            widget: "object"
+            fields:
+              - name: taglines
+                label: Taglines
+                widget: list
+                fields:
+                  - { name: "tagline", label: "Tagline", widget: "string" }
+          - name: "content"
+            label: "Content"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "content", label: "Content", widget: "markdown" }
+
+  - name: "shared"
+    label: "Shared"
+    editor: { preview: false }
+    files:
+      - name: "banner"
+        file: "public/content/shared/banner.json"
+        label: "Banner"
+        extension: "json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - name: "image"
+            label: "Image"
+            widget: "object"
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: "alt", label: "Alt", widget: "string" }
+              - {
+                  name: "src",
+                  label: "Image",
+                  widget: "image",
+                  choose_url: false,
+                  media_folder: "/public/content/shared/images",
+                  public_folder: "/content/shared/images",
+                }
+
+  - name: "technologies"
+    label: "Technologies"
+    create: true
+    editor: { preview: false }
+    folder: "public/content/technology"
+    extension: "json"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "slug", label: "Slug", widget: "string" }
+      - { name: "url", label: "URL", widget: "string" }
+      - { name: "color", label: "Color", widget: "color" }
+
+  - name: "categories"
+    label: "Categories"
+    create: true
+    editor: { preview: false }
+    folder: "public/content/category"
+    extension: "json"
+    fields:
+      - { name: "slug", label: "Slug", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+
+  - name: "project"
+    label: "Projects"
+    create: true
+    editor: { preview: false }
+    folder: "public/content/project"
+    extension: "json"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "slug", label: "Slug", widget: "string" }
+      - { name: "intro", label: "Intro", widget: "text" }
+      - { name: "tagline", label: "Tagline", widget: "string" }
+      - { name: "content", label: "Content", widget: "markdown" }
+      - name: "images"
+        label: "Images"
+        widget: "list"
+        summary: "Image"
+        fields:
+          - name: "image"
+            label: "Image"
+            widget: "object"
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: "alt", label: "Alt", widget: "string" }
+              - {
+                  name: "src",
+                  label: "Image",
+                  widget: "image",
+                  choose_url: false,
+                  media_folder: "/public/content/project/images",
+                  public_folder: "/content/project/images",
+                }
+      - { name: "video", label: "Cover video", widget: "string" }
+      - name: "image"
+        label: "Cover image"
+        widget: "object"
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: "alt", label: "Alt", widget: "string" }
+          - {
+              name: "src",
+              label: "Image",
+              widget: "image",
+              choose_url: false,
+              media_folder: "/public/content/project/images",
+              public_folder: "/content/project/images",
+            }
+      - name: "categories"
+        label: "Categories"
+        widget: "list"
+        field:
+          {
+            name: "category",
+            label: "Category",
+            widget: "relation",
+            collection: "categories",
+            value_field: "slug",
+            search_fields: ["title"],
+            display_fields: ["title"],
+          }
+      - name: "technologies"
+        label: "Technologies"
+        widget: "list"
+        field:
+          {
+            name: "technology",
+            label: "Technology",
+            widget: "relation",
+            collection: "technologies",
+            value_field: "slug",
+            search_fields: ["title"],
+            display_fields: ["title"],
+          }
+      - name: "links"
+        label: "Call to actions"
+        widget: "list"
+        fields:
+          - { name: "url", label: "URL", widget: "string" }
+          - { name: "icon", label: "Icon", widget: "string" }
+          - { name: "title", label: "Title", widget: "string" }

@@ -25,10 +25,8 @@ collections:
     editor: { preview: false }
     files:
       - name: "home"
+        file: "public/content/pages/home/index.json"
         label: "Home"
-        create: false
-        editor: { preview: false }
-        folder: "public/content/home"
         extension: "json"
         fields:
           - { name: "title", label: "Title", widget: "string" }

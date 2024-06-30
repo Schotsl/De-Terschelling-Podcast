@@ -1,6 +1,14 @@
 import RSS from "rss";
 
+// FS
+import fs from "fs";
+import mp3Duration from "mp3-duration";
+
+// Load /public/content/podcast/audio/intro.mp3
+const intro = fs.readFileSync("./public/content/podcast/audio/intro.mp3");
+
 export async function GET() {
+  console.log(await mp3Duration(intro));
   const feed = new RSS({
     title: "De Terschelling Podcast",
     generator: "Next",

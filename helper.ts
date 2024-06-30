@@ -54,7 +54,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
 
     const explicit = podcastParsed.explicit === true;
     const enclosure = {
-      url: `${process.env.NEXT_PUBLIC_URL}${podcastParsed.audio}`,
+      url: `${process.env.NEXT_PUBLIC_CDN}${podcastParsed.audio}`,
       size: audioSize,
       type: audioType,
     };

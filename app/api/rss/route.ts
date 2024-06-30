@@ -7,7 +7,7 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
 export async function GET() {
-  const url = process.env.NEXT_PUBLIC_URL!;
+  const url = process.env.NEXT_PUBLIC_CDN!;
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();

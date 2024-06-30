@@ -2,6 +2,7 @@ import fs from "fs";
 
 // @ts-ignore
 import mp3Duration from "mp3-duration";
+import { Podcast } from "./types";
 
 export function formatAgo(date: Date) {
   const now = new Date();
@@ -28,7 +29,7 @@ export function formatAgo(date: Date) {
   }
 }
 
-export async function getPodcasts() {
+export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
@@ -48,16 +49,28 @@ export async function getPodcasts() {
     const audioSize = audioStat.size;
     const audioType = "audio/mpeg";
 
-    const duration = await mp3Duration(audioBuffer);
+    const durationFull = await mp3Duration(audioBuffer);
+    const duration = Math.round(durationFull);
+
+    const explicit = podcastParsed.explicit === true;
     const enclosure = {
-      url: `https://de-terschelling-podcast.nl${podcastParsed.audio}`,
+      url: `${process.env.NEXT_PUBLIC_URL}${podcastParsed.audio}`,
       size: audioSize,
       type: audioType,
     };
 
-    return { ...podcastParsed, duration, enclosure };
+    return { ...podcastParsed, explicit, duration, enclosure };
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);
   return podcastsResolved;
+}
+
+export function encodeHTML(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/>/g, "&gt;")
+    .replace(/</g, "&lt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }

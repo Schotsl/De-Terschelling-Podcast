@@ -19,6 +19,9 @@ export async function GET() {
     };
   });
 
+  const coverImage = encodeURIComponent(home.image.src);
+  const coverImageResized = `${url}/_next/image?url=${coverImage}&w=1920&q=100`;
+
   const feed = new RSS({
     feed_url: `${url}/api/rss`,
     site_url: url,
@@ -55,7 +58,7 @@ export async function GET() {
       {
         "itunes:image": {
           _attr: {
-            href: `${url}${home.image.src}?w=1400`,
+            href: coverImageResized,
           },
         },
       },
@@ -64,6 +67,9 @@ export async function GET() {
   });
 
   podcasts.map((podcast) => {
+    const episodeImage = encodeURIComponent(podcast.image.src);
+    const episodeImageResized = `${url}/_next/image?url=${episodeImage}&w=1920&q=100`;
+
     feed.item({
       url: `${url}/podcast/${podcast.slug}`,
       date: podcast.publication,
@@ -73,7 +79,7 @@ export async function GET() {
       guid: podcast.slug,
       custom_elements: [
         { link: `${url}/podcast/${podcast.slug}` },
-        { image: `${url}${podcast.image.src}?w=1400` },
+        { image: episodeImageResized },
         { pubDate: podcast.publication },
         { "itunes:title": podcast.title },
         { "itunes:episode": podcast.episode },
@@ -83,7 +89,7 @@ export async function GET() {
         {
           "itunes:image": {
             _attr: {
-              href: `${url}${podcast.image.src}?w=1400`,
+              href: episodeImageResized,
             },
           },
         },

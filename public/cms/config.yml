@@ -37,20 +37,25 @@ collections:
           label: "Audio",
           widget: "file",
           choose_url: false,
-          allow_multiple: false,
           media_folder: "/public/content/podcast/audio",
           public_folder: "/content/podcast/audio",
+          allow_multiple: false,
         }
       - {
           name: "image",
           label: "Image",
           widget: "image",
           choose_url: false,
-          allow_multiple: false,
           media_folder: "/public/content/podcast/cover",
           public_folder: "/content/podcast/cover",
+          allow_multiple: false,
         }
-      - { name: "explicit", label: "Explicit", widget: "boolean" }
+      - {
+          name: "explicit",
+          label: "Explicit",
+          widget: "boolean",
+          required: false,
+        }
       - {
           name: "type",
           label: "Type",

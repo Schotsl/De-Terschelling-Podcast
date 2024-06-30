@@ -30,10 +30,8 @@ collections:
         extension: "json"
         fields:
           - { name: "title", label: "Title", widget: "string" }
-          - { name: "category", label: "Category", widget: "string" }
           - { name: "explicit", label: "Explicit", widget: "boolean" }
           - { name: "description", label: "Description", widget: "text" }
-          - { name: "subcategory", label: "Subcategory", widget: "string" }
           - {
               name: "image",
               label: "Image",
@@ -52,6 +50,16 @@ collections:
               public_folder: "/content/home",
               allow_multiple: false,
             }
+          - {
+            name: "categories",
+            label: "Categories",
+            widget: "list",
+            min: 1,
+            max: 2,
+            fields:
+              - { name: "category", label: "Category", widget: "string" }
+              - { name: "subcategory", label: "Subcategory", widget: "string" }
+          }
 
   - name: "podcast"
     label: "Podcasts"

@@ -1,7 +1,7 @@
 import RSS from "rss";
 import home from "@/public/content/pages/home/index.json";
 
-import { getPodcasts, encodeHTML } from "@/helper";
+import { getPodcasts } from "@/helper";
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
@@ -11,11 +11,9 @@ export async function GET() {
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
-
-  // We have to parse the categories into HTML entities for Apple Podcasts
-  const categories = home.categories.map((category) => {
+  const categories = home.categories.map((text) => {
     return {
-      "itunes:category": [{ _attr: { text: encodeHTML(category) } }],
+      "itunes:category": [{ _attr: { text } }],
     };
   });
 

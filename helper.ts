@@ -65,12 +65,3 @@ export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsResolved = await Promise.all(podcastsPromises);
   return podcastsResolved;
 }
-
-export function encodeHTML(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/>/g, "&gt;")
-    .replace(/</g, "&lt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
-}

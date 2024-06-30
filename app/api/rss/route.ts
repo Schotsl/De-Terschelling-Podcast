@@ -69,14 +69,13 @@ export async function GET() {
       guid: podcast.slug,
       custom_elements: [
         { link: `${url}/podcast/${podcast.slug}` },
+        { image: `${url}${podcast.image.src}?w=1400` },
         { pubDate: podcast.publication },
-        { "itunes:duration": podcast.duration },
-        {
-          image: `${url}${podcast.image.src}?w=1400`,
-        },
-        { "itunes:explicit": podcast.explicit },
+        { "itunes:image": `${url}${podcast.image.src}?w=1400` },
         { "itunes:title": podcast.title },
         { "itunes:episode": podcast.episode },
+        { "itunes:explicit": podcast.explicit },
+        { "itunes:duration": podcast.duration },
         { "itunes:episodeType": podcast.type },
       ],
     });

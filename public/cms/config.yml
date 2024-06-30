@@ -30,7 +30,12 @@ collections:
         extension: "json"
         fields:
           - { name: "title", label: "Title", widget: "string" }
-          - { name: "explicit", label: "Explicit", widget: "boolean" }
+          - {
+              name: "explicit",
+              label: "Explicit",
+              widget: "boolean",
+              required: false,
+            }
           - { name: "description", label: "Description", widget: "text" }
           - {
               name: "image",
@@ -56,13 +61,13 @@ collections:
             min: 1
             max: 2
             fields:
+              - { name: "category", label: "Category", widget: "string" }
               - {
-                  name: "category",
-                  label: "Category",
+                  name: "subcategory",
+                  label: "Subcategory",
                   widget: "string",
-                  required: true,
+                  required: false,
                 }
-              - { name: "subcategory", label: "Subcategory", widget: "string" }
 
   - name: "podcast"
     label: "Podcasts"

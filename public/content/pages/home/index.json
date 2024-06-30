@@ -8,5 +8,13 @@
     }
   ],
   "description": "We love Terschelling!",
-  "title": "De Terschelling Podcast"
+  "title": "De Terschelling Podcast",
+  "image": {
+    "alt": "Temporary alt",
+    "src": "/content/pages/home/img_9882.jpg"
+  },
+  "banner": {
+    "alt": "Temporary alt",
+    "src": "/content/pages/home/img_3474.jpg"
+  }
 }

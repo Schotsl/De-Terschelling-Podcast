@@ -8,7 +8,7 @@ import { getPodcasts } from "@/helper";
 // const intro = fs.readFileSync("./public/content/podcast/audio/intro.mp3");
 
 export async function GET() {
-  await getPodcasts();
+  console.log(await getPodcasts());
   const feed = new RSS({
     title: "De Terschelling Podcast",
     generator: "Next",

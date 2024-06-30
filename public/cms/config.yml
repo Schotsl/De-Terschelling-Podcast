@@ -103,15 +103,6 @@ collections:
           allow_multiple: false,
         }
       - {
-          name: "image",
-          label: "Image",
-          widget: "image",
-          choose_url: false,
-          media_folder: "/public/content/podcast/cover",
-          public_folder: "/content/podcast/cover",
-          allow_multiple: false,
-        }
-      - {
           name: "explicit",
           label: "Explicit",
           widget: "boolean",
@@ -128,3 +119,18 @@ collections:
               { label: "Bonus", value: "bonus" },
             ],
         }
+      - name: "image"
+        label: "Image"
+        widget: "object"
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: "alt", label: "Alt", widget: "string" }
+          - {
+              name: "src",
+              label: "Image",
+              widget: "image",
+              choose_url: false,
+              media_folder: "/public/content/podcast/cover",
+              public_folder: "/content/podcast/cover",
+              allow_multiple: false,
+            }

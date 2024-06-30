@@ -1,5 +1,8 @@
 import fs from "fs";
 
+// @ts-ignore
+import mp3Duration from "mp3-duration";
+
 export function formatAgo(date: Date) {
   const now = new Date();
 
@@ -37,8 +40,22 @@ export async function getPodcasts() {
 
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
-    console.log(podcastParsed.audio);
-    return podcastParsed;
+
+    const audioPath = `${process.cwd()}/public${podcastParsed.audio}`;
+    const audioStat = fs.statSync(audioPath);
+    const audioBuffer = fs.readFileSync(audioPath);
+
+    const audioSize = audioStat.size;
+    const audioType = "audio/mpeg";
+
+    const duration = await mp3Duration(audioBuffer);
+    const enclosure = {
+      url: `https://de-terschelling-podcast.nl${podcastParsed.audio}`,
+      size: audioSize,
+      type: audioType,
+    };
+
+    return { ...podcastParsed, duration, enclosure };
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);

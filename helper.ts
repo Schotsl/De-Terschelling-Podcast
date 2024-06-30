@@ -1,3 +1,5 @@
+import fs from "fs";
+
 export function formatAgo(date: Date) {
   const now = new Date();
 
@@ -21,4 +23,24 @@ export function formatAgo(date: Date) {
   } else {
     return `${years} jaar geleden`;
   }
+}
+
+export async function getPodcasts() {
+  const podcastsPath = `${process.cwd()}/public/content/podcast`;
+  const podcastsNames = fs.readdirSync(podcastsPath);
+  const podcastsFiltered = podcastsNames.filter((podcastName) =>
+    podcastName.endsWith(".json")
+  );
+
+  const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
+    const podcastPath = `${podcastsPath}/${podcastName}`;
+
+    const podcastObject = fs.readFileSync(podcastPath, "utf8");
+    const podcastParsed = JSON.parse(podcastObject);
+    console.log(podcastParsed.audio);
+    return podcastParsed;
+  });
+
+  const podcastsResolved = await Promise.all(podcastsPromises);
+  return podcastsResolved;
 }

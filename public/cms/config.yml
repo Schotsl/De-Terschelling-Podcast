@@ -29,23 +29,27 @@ collections:
         label: "Home"
         extension: "json"
         fields:
-          - name: "title", label: "Title", widget: "string"
-          - name: "explicit", label: "Explicit", widget: "boolean"
-          - name: "description", label: "Description", widget: "text"
-          - name: "image",
-            label: "Image",
-            widget: "image",
-            choose_url: false,
-            media_folder: "/public/content/home",
-            public_folder: "/content/home",
-            allow_multiple: false,
-          - name: "banner",
-            label: "Banner",
-            widget: "image",
-            choose_url: false,
-            media_folder: "/public/content/home",
-            public_folder: "/content/home",
-            allow_multiple: false,
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "explicit", label: "Explicit", widget: "boolean" }
+          - { name: "description", label: "Description", widget: "text" }
+          - {
+              name: "image",
+              label: "Image",
+              widget: "image",
+              choose_url: false,
+              media_folder: "/public/content/home",
+              public_folder: "/content/home",
+              allow_multiple: false,
+            }
+          - {
+              name: "banner",
+              label: "Banner",
+              widget: "image",
+              choose_url: false,
+              media_folder: "/public/content/home",
+              public_folder: "/content/home",
+              allow_multiple: false,
+            }
           - name: "categories"
             label: "Categories"
             widget: "list"

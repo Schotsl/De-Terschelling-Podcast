@@ -4,23 +4,62 @@ import RSS from "rss";
 import fs from "fs";
 import { getPodcasts } from "@/helper";
 
+import home from "@/public/content/pages/home/index.json";
 // Load /public/content/podcast/audio/intro.mp3
 // const intro = fs.readFileSync("./public/content/podcast/audio/intro.mp3");
 
+const firstCategory = home.categories[0].category;
+const secondCategory = home.categories[1].category;
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
 export async function GET() {
-  console.log(await getPodcasts());
+  const podcasts = await getPodcasts();
+  console.log(podcasts[0].image.src);
+
   const feed = new RSS({
-    title: "De Terschelling Podcast",
-    generator: "Next",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    feed_url: "https://www.davegray.codes/feed.xml",
-    site_url: "https://www.davegray.codes/",
-    managingEditor: "dave@davegray.codes (Dave Gray)",
-    webMaster: "dave@davegray.codes (Dave Gray)",
-    copyright: `Copyright ${new Date().getFullYear().toString()}, Dave Gray`,
-    language: "en-US",
-    pubDate: new Date().toUTCString(),
-    ttl: 60,
+    feed_url: "https://de-terschelling-podcast.nl/api/rss",
+    site_url: "https://de-terschelling-podcast.nl",
+
+    title: home.title,
+    language: "nld",
+    copyright: `© ${currentYear} Sjors van Holst`,
+    description: home.description,
+
+    custom_namespaces: {
+      itunes: "http://www.itunes.com/dtds/podcast-1.0.dtd",
+    },
+    custom_elements: [
+      {
+        "itunes:title": home.title,
+      },
+      {
+        "itunes:image": `https://de-terschelling-podcast.nl${home.image.src}w=1400`,
+      },
+      {
+        "itunes:category": [{ _attr: { text: firstCategory } }],
+      },
+      {
+        "itunes:category": [{ _attr: { text: secondCategory } }],
+      },
+      // {
+      //   "itunes:explicit": home.explicit === "true"
+      // }
+      // Sjors van Holst and Timo Steenmeijer
+      {
+        "itunes:author": "Sjors van Holst",
+      },
+      {
+        "itunes:author": "Timo Steenmeijer",
+      },
+      {
+        link: "https://de-terschelling-podcast.nl",
+      },
+      {
+        "itunes:type": "episodic",
+      },
+    ],
   });
 
   // const allPosts = await getPostsMeta();

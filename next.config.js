@@ -10,7 +10,7 @@ const contentSecurityPolicy = `
   worker-src 'self' blob:;
   object-src 'none';
   script-src 'self' 'unsafe-eval' 'unsafe-inline';
-  connect-src 'self' https://api.github.com;
+  connect-src 'self' blob: https://api.github.com;
   report-to csp-endpoint;
   report-uri https://o4505897577414656.ingest.sentry.io/api/4507515658633216/security/?sentry_key=aedf98be74b399f0ad188a7bbc6419a3;
   upgrade-insecure-requests;

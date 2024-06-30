@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "@sentry/nextjs": "^8.11.0",
+    "@types/rss": "^0.0.32",
     "@types/simple-oauth2": "^5.0.7",
     "encoding": "^0.1.13",
     "next": "^14.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rss": "^1.2.2",
     "simple-oauth2": "^5.0.1"
   },
   "devDependencies": {

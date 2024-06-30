@@ -20,6 +20,37 @@ site_url: "https://de-terschelling-podcast.vercel.app/"
 logo_url: "https://de-terschelling-podcast.vercel.app/favicon-600x600.png"
 
 collections:
+  - name: "home"
+    label: "Home"
+    create: false
+    editor: { preview: false }
+    folder: "public/content/home"
+    extension: "json"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "category", label: "Category", widget: "string" }
+      - { name: "explicit", label: "Explicit", widget: "boolean" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "subcategory", label: "Subcategory", widget: "string" }
+      - {
+          name: "image",
+          label: "Image",
+          widget: "image",
+          choose_url: false,
+          media_folder: "/public/content/home",
+          public_folder: "/content/home",
+          allow_multiple: false,
+        }
+      - {
+          name: "banner",
+          label: "Banner",
+          widget: "image",
+          choose_url: false,
+          media_folder: "/public/content/home",
+          public_folder: "/content/home",
+          allow_multiple: false,
+        }
+
   - name: "podcast"
     label: "Podcasts"
     create: true

@@ -37,9 +37,6 @@ export async function GET() {
         "itunes:title": home.title,
       },
       {
-        "itunes:image": `${url}${home.image.src}?w=1400`,
-      },
-      {
         // @ts-ignore
         "itunes:explicit": home.explicit === true,
       },
@@ -54,6 +51,13 @@ export async function GET() {
       },
       {
         "itunes:type": "episodic",
+      },
+      {
+        "itunes:image": {
+          _attr: {
+            href: `${url}${home.image.src}?w=1400`,
+          },
+        },
       },
       ...categories,
     ],
@@ -71,12 +75,18 @@ export async function GET() {
         { link: `${url}/podcast/${podcast.slug}` },
         { image: `${url}${podcast.image.src}?w=1400` },
         { pubDate: podcast.publication },
-        { "itunes:image": `${url}${podcast.image.src}?w=1400` },
         { "itunes:title": podcast.title },
         { "itunes:episode": podcast.episode },
         { "itunes:explicit": podcast.explicit },
         { "itunes:duration": podcast.duration },
         { "itunes:episodeType": podcast.type },
+        {
+          "itunes:image": {
+            _attr: {
+              href: `${url}${podcast.image.src}?w=1400`,
+            },
+          },
+        },
       ],
     });
   });

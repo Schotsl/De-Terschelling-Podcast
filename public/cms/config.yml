@@ -50,16 +50,14 @@ collections:
               public_folder: "/content/home",
               allow_multiple: false,
             }
-          - {
-            name: "categories",
+          - name: "categories",
             label: "Categories",
             widget: "list",
             min: 1,
             max: 2,
             fields:
-              - { name: "category", label: "Category", widget: "string" }
+              - { name: "category", label: "Category", widget: "string", required: true }
               - { name: "subcategory", label: "Subcategory", widget: "string" }
-          }
 
   - name: "podcast"
     label: "Podcasts"

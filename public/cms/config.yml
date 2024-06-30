@@ -72,14 +72,7 @@ collections:
             widget: "list"
             min: 1
             max: 2
-            fields:
-              - { name: "category", label: "Category", widget: "string" }
-              - {
-                  name: "subcategory",
-                  label: "Subcategory",
-                  widget: "string",
-                  required: false,
-                }
+            field: { name: "category", label: "Category", widget: "string" }
 
   - name: "podcast"
     label: "Podcasts"

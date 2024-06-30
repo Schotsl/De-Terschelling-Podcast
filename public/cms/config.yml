@@ -36,6 +36,8 @@ collections:
           name: "audio",
           label: "Audio",
           widget: "file",
+          choose_url: false,
+          allow_multiple: false,
           media_folder: "/public/content/podcast/audio",
           public_folder: "/content/podcast/audio",
         }
@@ -43,6 +45,8 @@ collections:
           name: "image",
           label: "Image",
           widget: "image",
+          choose_url: false,
+          allow_multiple: false,
           media_folder: "/public/content/podcast/cover",
           public_folder: "/content/podcast/cover",
         }

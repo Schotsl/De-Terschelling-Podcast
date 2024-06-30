@@ -1,11 +1,11 @@
 {
-  "slug": "test",
-  "publication": "2024-06-30T12:52:00.000Z",
-  "explicit": true,
+  "slug": "eilandliefde-terschelling",
+  "publication": "2024-06-30T13:00:00.000Z",
+  "explicit": false,
   "audio": "/content/podcast/audio/intro.mp3",
-  "subtitle": "test",
-  "title": "test",
+  "subtitle": "We love Terschelling!",
+  "title": "Eilandliefde Terschelling",
   "type": "full",
   "image": "/content/podcast/cover/img_3485.jpg",
-  "description": "test"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 }

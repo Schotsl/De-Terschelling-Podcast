@@ -35,7 +35,11 @@ export async function GET() {
     },
     custom_elements: [
       {
-        "itunes:email": "de-terschelling-podcast@sjorsvanholst.nl",
+        // de-terschelling-podcast@sjorsvanholst.nl
+        "itunes:owner": [
+          { "itunes:name": "Sjors van Holst" },
+          { "itunes:email": "de-terschelling-podcast@sjorsvanholst.nl" },
+        ],
       },
       {
         "itunes:title": home.title,

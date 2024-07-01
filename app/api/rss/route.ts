@@ -6,7 +6,7 @@ import { getPodcasts } from "@/helper";
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const url = process.env.NEXT_PUBLIC_CDN!;
@@ -14,7 +14,7 @@ export async function GET() {
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
   const podcastsFiltered = podcasts.filter(
-    (podcast) => podcast.publication <= currentDate,
+    (podcast) => podcast.publication <= currentDate
   );
 
   const categories = home.categories.map((text) => {

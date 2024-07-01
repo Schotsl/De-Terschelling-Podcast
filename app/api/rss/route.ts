@@ -14,7 +14,7 @@ export async function GET() {
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
   const podcastsFiltered = podcasts.filter(
-    (podcast) => podcast.publication <= currentDate
+    (podcast) => podcast.publication <= currentDate,
   );
 
   const categories = home.categories.map((text) => {

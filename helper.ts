@@ -33,7 +33,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
-    podcastName.endsWith(".json")
+    podcastName.endsWith(".json"),
   );
 
   const podcastsPromises = podcastsFiltered.map(async (podcastName) => {

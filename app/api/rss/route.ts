@@ -6,11 +6,17 @@ import { getPodcasts } from "@/helper";
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
+export const revalidate = 3600;
+
 export async function GET() {
   const url = process.env.NEXT_PUBLIC_CDN!;
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
+  const podcastsFiltered = podcasts.filter(
+    (podcast) => podcast.publication <= currentDate
+  );
+
   const categories = home.categories.map((text) => {
     return {
       "itunes:category": [{ _attr: { text } }],
@@ -70,7 +76,7 @@ export async function GET() {
     ],
   });
 
-  podcasts.map((podcast) => {
+  podcastsFiltered.map((podcast) => {
     const episodeImage = encodeURIComponent(podcast.image.src);
     const episodeImageResized = `${url}/_next/image?url=${episodeImage}&w=1920&q=75`;
 

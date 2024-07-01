@@ -53,13 +53,15 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const duration = Math.round(durationFull);
 
     const explicit = podcastParsed.explicit === true;
+    const publication = new Date(podcastParsed.publication);
+
     const enclosure = {
       url: `${process.env.NEXT_PUBLIC_CDN}${podcastParsed.audio}`,
       size: audioSize,
       type: audioType,
     };
 
-    return { ...podcastParsed, explicit, duration, enclosure };
+    return { ...podcastParsed, duration, explicit, publication, enclosure };
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);

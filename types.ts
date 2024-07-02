@@ -1,6 +1,9 @@
 export type Image = {
-  alt: string;
   src: string;
+  alt: string;
+  blur: string;
+  width: number;
+  height: number;
 };
 
 export type Podcast = {

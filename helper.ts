@@ -1,8 +1,10 @@
 import fs from "fs";
+import sharp from "sharp";
+
+import { Podcast, Image } from "./types";
 
 // @ts-ignore
 import mp3Duration from "mp3-duration";
-import { Podcast } from "./types";
 
 export function formatAgo(date: Date) {
   const now = new Date();
@@ -29,11 +31,52 @@ export function formatAgo(date: Date) {
   }
 }
 
+export async function getImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}): Promise<Image> {
+  const imagePath = `${process.cwd()}/public/${src}`;
+  const imageBuffer = fs.readFileSync(imagePath);
+
+  const imageSharp = sharp(imageBuffer);
+  const imageResized = await imageSharp.resize(8).toBuffer();
+
+  const { width, height } = await imageSharp.metadata();
+
+  const ImageBase64 = imageResized.toString("base64");
+  const ImageSVG = `
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'>
+      <filter id="blur" x="0%" y="0%" width="100%" height="100%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.25"/>
+          <feComponentTransfer>
+          <feFuncA type="discrete" tableValues="1 1"/>
+        </feComponentTransfer>
+      </filter>
+
+      <image preserveAspectRatio='none' filter='url(#blur)' x='0' y='0' height='100%' width='100%' href='data:image/avif;base64,${ImageBase64}' />
+    </svg>
+  `;
+
+  const blurBuffer = Buffer.from(ImageSVG);
+  const blurBase64 = blurBuffer.toString("base64");
+
+  return {
+    src,
+    alt,
+    blur: blurBase64,
+    width: width!,
+    height: height!,
+  };
+}
+
 export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
-    podcastName.endsWith(".json"),
+    podcastName.endsWith(".json")
   );
 
   const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
@@ -49,9 +92,13 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const audioSize = audioStat.size;
     const audioType = "audio/mpeg";
 
-    const durationFull = await mp3Duration(audioBuffer);
-    const duration = Math.round(durationFull);
+    const promiseImage = getImage(podcastParsed.image);
+    const promiseDuration = mp3Duration(audioBuffer);
 
+    const promiseResults = await Promise.all([promiseImage, promiseDuration]);
+
+    const image = promiseResults[0];
+    const duration = Math.round(promiseResults[1]);
     const explicit = podcastParsed.explicit === true;
     const publication = new Date(podcastParsed.publication);
 
@@ -61,7 +108,14 @@ export async function getPodcasts(): Promise<Podcast[]> {
       type: audioType,
     };
 
-    return { ...podcastParsed, duration, explicit, publication, enclosure };
+    return {
+      ...podcastParsed,
+      image,
+      duration,
+      explicit,
+      enclosure,
+      publication,
+    };
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);

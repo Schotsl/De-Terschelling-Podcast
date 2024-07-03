@@ -1,10 +1,13 @@
 {
-  "categories": ["Comedy", "Society & Culture"],
+  "categories": [
+    "Comedy",
+    "Society & Culture"
+  ],
   "description": "We love Terschelling!",
   "title": "De Terschelling Podcast",
   "image": {
-    "alt": "Temporary alt",
-    "src": "/content/pages/home/img_9882.jpg"
+    "alt": "Timo en Sjors voor fotobehang van de Brandaris",
+    "src": "/content/pages/home/the-one.png"
   },
   "banner": {
     "alt": "Temporary alt",

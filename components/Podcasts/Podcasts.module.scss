@@ -1,5 +1,46 @@
 .podcasts {
   gap: 1rem;
   display: grid;
+  padding: 8rem 0;
+  max-width: 62rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  &__podcast {
+    &__link {
+      display: flex;
+      flex-direction: column;
+      width: 22rem;
+      padding: 1rem;
+      gap: 1rem;
+      border: 2px solid #000;
+      border-radius: 1rem;
+      text-decoration: none !important;
+      transition: transform 0.2s;
+
+      &__title {
+        font-size: 1.25rem;
+      }
+
+      &__description {
+        display: -webkit-box;
+        overflow: hidden;
+
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      &__image {
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+
+      &:hover {
+        // Remove font weight change
+        font-weight: 400;
+
+        // transform: scale(1.05);
+        // box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 }

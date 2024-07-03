@@ -9,7 +9,8 @@ const currentYear = currentDate.getFullYear();
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const url = process.env.NEXT_PUBLIC_CDN!;
+  const cdn = process.env.NEXT_PUBLIC_CDN!;
+  const url = process.env.NEXT_PUBLIC_URL!;
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
@@ -24,7 +25,7 @@ export async function GET() {
   });
 
   const coverImage = encodeURIComponent(home.image.src);
-  const coverImageResized = `${url}/_next/image?url=${coverImage}&w=1920&q=75`;
+  const coverImageResized = `${cdn}/_next/image?url=${coverImage}&w=1920&q=75`;
 
   const feed = new RSS({
     feed_url: `${url}/api/rss`,
@@ -78,7 +79,7 @@ export async function GET() {
 
   podcastsFiltered.map((podcast) => {
     const episodeImage = encodeURIComponent(podcast.image.src);
-    const episodeImageResized = `${url}/_next/image?url=${episodeImage}&w=1920&q=75`;
+    const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
 
     feed.item({
       url: `${url}/podcast/${podcast.slug}`,

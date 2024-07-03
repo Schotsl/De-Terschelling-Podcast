@@ -1,12 +1,12 @@
 import { Image as ImageType } from "@/types";
 
 import Image from "@/components/Image";
-import styles from "./BannerImage.module.scss";
+import styles from "./HeaderImage.module.scss";
 
-type BannerImageProps = {
+type HeaderImageProps = {
   image: ImageType;
 };
 
-export default function BannerImage({ image }: BannerImageProps) {
+export default function HeaderImage({ image }: HeaderImageProps) {
   return <Image image={image} sizes="22rem" className={styles.image} />;
 }

@@ -2,23 +2,23 @@ import { getPodcasts, getImage } from "@/helper";
 
 import Image from "@/components/Image";
 import content from "@/public/content/pages/home/index.json";
-import Banner from "@/components/Banner";
+import Header from "@/components/Header";
 import Podcasts from "@/components/Podcasts";
 
 export default async function Page() {
   const promiseImage = getImage(content.image);
-  const promiseBanner = getImage(content.banner);
+  const promiseHeader = getImage(content.banner);
   const promiseBodcasts = getPodcasts();
 
   const [image, banner, podcasts] = await Promise.all([
     promiseImage,
-    promiseBanner,
+    promiseHeader,
     promiseBodcasts,
   ]);
 
   return (
     <main>
-      <Banner
+      <Header
         image={image}
         title={content.title}
         banner={banner}

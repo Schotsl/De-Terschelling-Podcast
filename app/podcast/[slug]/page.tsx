@@ -1,7 +1,7 @@
 import { getImage, getPodcasts } from "@/helper";
 
 import content from "@/public/content/pages/home/index.json";
-import Banner from "@/components/Banner";
+import Header from "@/components/Header";
 
 export async function generateStaticParams() {
   const podcasts = await getPodcasts();
@@ -37,7 +37,7 @@ export default async function PodcastPage({
 
   return (
     <section>
-      <Banner
+      <Header
         image={podcast.image}
         title={podcast.title}
         banner={banner}

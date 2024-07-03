@@ -43,10 +43,6 @@ export default async function PodcastPage({
         banner={banner}
         description={podcast.description}
       />
-
-      {/* <Image image={podcast.image} sizes="100vw" />
-      <h2>{podcast.title}</h2>
-      <p>{podcast.description}</p> */}
     </section>
   );
 }

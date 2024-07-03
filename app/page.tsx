@@ -2,6 +2,7 @@ import { getPodcasts, getImage } from "@/helper";
 
 import Image from "@/components/Image";
 import content from "@/public/content/pages/home/index.json";
+import Banner from "@/components/Banner";
 
 export default async function Page() {
   const promiseImage = getImage(content.image);
@@ -16,18 +17,20 @@ export default async function Page() {
 
   return (
     <main>
-      <Image image={banner} sizes="100vw" />
-      <h1>{content.title}</h1>
-      <p>{content.description}</p>
-      <Image image={image} sizes="100vw" />
+      <Banner
+        image={image}
+        title={content.title}
+        banner={banner}
+        description={content.description}
+      />
 
-      {podcasts.map((podcast) => (
+      {/* {podcasts.map((podcast) => (
         <a key={podcast.slug} href={`/podcast/${podcast.slug}`}>
           <Image image={podcast.image} sizes="100vw" />
           <h2>{podcast.title}</h2>
           <p>{podcast.description}</p>
         </a>
-      ))}
+      ))} */}
     </main>
   );
 }

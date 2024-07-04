@@ -55,10 +55,7 @@ export async function GET() {
         "itunes:explicit": home.explicit === true,
       },
       {
-        "itunes:author": "Sjors van Holst",
-      },
-      {
-        "itunes:author": "Timo Steenmeijer",
+        "itunes:author": "Timo Steenmeijer & Sjors van Holst",
       },
       {
         link: url,

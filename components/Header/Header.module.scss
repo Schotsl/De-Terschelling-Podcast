@@ -1,15 +1,13 @@
 .banner {
-  --header-image-size: 22rem;
-  --header-banner-size: 22rem;
+  --header-banner-height: 22rem;
 
   width: 100%;
-  height: calc(var(--header-banner-size) + var(--header-image-size) / 2);
+  height: calc(var(--header-banner-height) + var(--card-item-size) / 2);
   position: relative;
 
   &__image {
     width: 100%;
-    inset: 0;
-    height: var(--header-banner-size);
+    height: var(--header-banner-height);
     filter: brightness(0.35);
 
     object-fit: cover;
@@ -18,14 +16,13 @@
 
   &__content {
     gap: 2rem;
-    top: var(--header-banner-size);
     left: 50%;
-    width: 62rem;
+    width: var(--page-content-width);
     display: grid;
     position: absolute;
     transform: translate(-50%, -50%);
 
-    grid-template-columns: var(--header-image-size) 1fr;
+    grid-template-columns: var(--card-item-size) 1fr;
     grid-template-rows: 1fr 1fr;
   }
 }

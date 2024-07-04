@@ -19,13 +19,17 @@ export default function Podcasts({ podcasts }: { podcasts: Podcast[] }) {
               className={styles.podcasts__podcast__link__image}
             />
 
-            <h2 className={styles.podcasts__podcast__link__title}>
-              {podcast.episode}. {podcast.title}
-            </h2>
+            <div className={styles.podcasts__podcast__link__content}>
+              <h2 className={styles.podcasts__podcast__link__content__title}>
+                {podcast.episode}. {podcast.title}
+              </h2>
 
-            <p className={styles.podcasts__podcast__link__description}>
-              {podcast.description}
-            </p>
+              <p
+                className={styles.podcasts__podcast__link__content__description}
+              >
+                {podcast.description}
+              </p>
+            </div>
           </a>
         </li>
       ))}

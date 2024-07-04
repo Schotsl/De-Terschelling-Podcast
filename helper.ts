@@ -119,5 +119,12 @@ export async function getPodcasts(): Promise<Podcast[]> {
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);
-  return podcastsResolved;
+  return [
+    ...podcastsResolved,
+    ...podcastsResolved,
+    ...podcastsResolved,
+    ...podcastsResolved,
+    ...podcastsResolved,
+    ...podcastsResolved,
+  ];
 }

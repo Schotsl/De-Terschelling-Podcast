@@ -69,8 +69,6 @@ a {
 
   &:hover {
     color: #000;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
   }
 }
 
@@ -79,20 +77,18 @@ a {
 }
 
 :root {
-  // --padding-vertical:
-  // --padding-horizontal:
+  --card-item-size: 22rem;
+  --card-item-gap: 2rem;
+
+  --page-content-width: 70rem;
 }
 
 @include respond-to-md {
   :root {
-    // --padding-vertical:
-    // --padding-horizontal:
   }
 }
 
 @include respond-to-sm {
   :root {
-    // --padding-vertical:
-    // --padding-horizontal:
   }
 }

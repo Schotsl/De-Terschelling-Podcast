@@ -13,5 +13,10 @@
     "alt": "Een foto van Terschelling met de Brandaris in de verte",
     "src": "/content/pages/home/banner.png"
   },
-  "explicit": false
+  "explicit": false,
+  "links": {
+    "podimo": "#podimo",
+    "apple": "#apple",
+    "spotify": "#spotify"
+  }
 }

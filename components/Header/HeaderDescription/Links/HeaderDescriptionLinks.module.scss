@@ -1,0 +1,60 @@
+.links {
+  gap: 1rem;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: row;
+
+  &__item {
+    overflow: hidden;
+    transition: transform 0.2s;
+    border-radius: 0.5rem;
+
+    &__link {
+      width: 2.5rem;
+      height: 2.5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__image {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--apple {
+      .links__item__link {
+        background: #c544e5;
+
+        &:hover {
+          background: #a63fcf;
+        }
+      }
+    }
+
+    &--podimo {
+      .links__item__link {
+        background: #794cf8;
+
+        &:hover {
+          background: #6b45e0;
+        }
+      }
+    }
+
+    &--spotify {
+      .links__item__link {
+        background: #12bd4e;
+
+        &:hover {
+          background: #0faa44;
+        }
+      }
+    }
+  }
+}

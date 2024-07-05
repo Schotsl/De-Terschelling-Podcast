@@ -1,5 +1,7 @@
 import styles from "./HeaderDescription.module.scss";
 
+import HeaderDescriptionLink from "./Links";
+
 type HeaderDescriptionProps = {
   description: string;
 };
@@ -7,5 +9,11 @@ type HeaderDescriptionProps = {
 export default function HeaderDescription({
   description,
 }: HeaderDescriptionProps) {
-  return <p className={styles.description}>{description}</p>;
+  return (
+    <div>
+      <p className={styles.description}>{description}</p>
+
+      <HeaderDescriptionLink />
+    </div>
+  );
 }

@@ -5,12 +5,19 @@ import podimoIcon from "@/public/icons/podimo.svg";
 import spotifyIcon from "@/public/icons/spotify.svg";
 
 import styles from "./HeaderDescriptionLinks.module.scss";
+import { Links } from "@/types";
 
-export default function HeaderDescriptionLinks() {
+type HeaderDescriptionLinksProps = {
+  links: Links;
+};
+
+export default function HeaderDescriptionLinks({
+  links,
+}: HeaderDescriptionLinksProps) {
   return (
     <ul className={styles.links}>
       <li className={`${styles.links__item} ${styles["links__item--apple"]}`}>
-        <a className={styles.links__item__link} href="#">
+        <a className={styles.links__item__link} href={links.apple}>
           <Image
             src={appleIcon}
             alt="Apple Podcasts"
@@ -20,7 +27,7 @@ export default function HeaderDescriptionLinks() {
       </li>
 
       <li className={`${styles.links__item} ${styles["links__item--podimo"]}`}>
-        <a className={styles.links__item__link} href="#">
+        <a className={styles.links__item__link} href={links.podimo}>
           <Image
             src={podimoIcon}
             alt="Podimo"
@@ -30,7 +37,7 @@ export default function HeaderDescriptionLinks() {
       </li>
 
       <li className={`${styles.links__item} ${styles["links__item--spotify"]}`}>
-        <a className={styles.links__item__link} href="#">
+        <a className={styles.links__item__link} href={links.spotify}>
           <Image
             src={spotifyIcon}
             alt="Spotify"

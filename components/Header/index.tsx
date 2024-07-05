@@ -1,4 +1,4 @@
-import { Image as ImageType } from "@/types";
+import { Image as ImageType, Links } from "@/types";
 
 import Image from "@/components/Image";
 import HeaderImage from "./HeaderImage";
@@ -9,6 +9,7 @@ import HeaderDescription from "./HeaderDescription";
 
 type HeaderProps = {
   title: string;
+  links: Links;
   image: ImageType;
   banner: ImageType;
   description: string;
@@ -16,6 +17,7 @@ type HeaderProps = {
 
 export default function Header({
   title,
+  links,
   image,
   banner,
   description,
@@ -27,7 +29,7 @@ export default function Header({
       <div className={styles.banner__content}>
         <HeaderImage image={image} />
         <HeaderTitle title={title} />
-        <HeaderDescription description={description} />
+        <HeaderDescription links={links} description={description} />
       </div>
     </header>
   );

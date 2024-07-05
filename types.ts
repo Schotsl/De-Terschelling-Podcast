@@ -24,3 +24,9 @@ export type Podcast = {
     length: number;
   };
 };
+
+export type Links = {
+  apple: string;
+  podimo: string;
+  spotify: string;
+};

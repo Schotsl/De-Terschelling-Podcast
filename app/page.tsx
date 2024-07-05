@@ -1,7 +1,8 @@
 import { getPodcasts, getImage } from "@/helper";
 
-import Image from "@/components/Image";
 import content from "@/public/content/pages/home/index.json";
+
+import Image from "@/components/Image";
 import Header from "@/components/Header";
 import Podcasts from "@/components/Podcasts";
 
@@ -20,6 +21,7 @@ export default async function Page() {
     <main>
       <Header
         image={image}
+        links={content.links}
         title={content.title}
         banner={banner}
         description={content.description}

@@ -2,9 +2,14 @@ import "./layout.scss";
 
 import PlausibleProvider from "next-plausible";
 
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { ReactNode } from "react";
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 const openSans = Open_Sans({
   weight: ["400", "700", "600"],

@@ -37,6 +37,13 @@ collections:
               required: false,
             }
           - { name: "description", label: "Description", widget: "text" }
+          - name: "links"
+            label: "Links"
+            widget: "object"
+            fields:
+              - { name: "podimo", label: "Podimo", widget: "string" }
+              - { name: "apple", label: "Apple Podcasts", widget: "string" }
+              - { name: "spotify", label: "Spotify", widget: "string" }
           - name: "image"
             label: "Image"
             widget: "object"

@@ -26,9 +26,7 @@ const reportTo = {
   ],
 };
 
-module.exports = withPlausibleProxy({
-  customDomain: "https://plausible.hedium.nl",
-})(
+module.exports = withPlausibleProxy({})(
   withSentryConfig(
     {
       async headers() {

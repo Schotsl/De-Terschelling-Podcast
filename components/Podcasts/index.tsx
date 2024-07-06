@@ -7,11 +7,14 @@ import styles from "./Podcasts.module.scss";
 
 export default function Podcasts({ podcasts }: { podcasts: Podcast[] }) {
   return (
-    <ul className={styles.podcasts}>
-      {podcasts.map((podcast) => (
-        <PodcastsItem podcast={podcast} key={podcast.slug} />
-      ))}
-    </ul>
+    <section className={styles.podcasts}>
+      <h2 className={styles.podcasts__title}>Onze laatste afleveringen</h2>
+      <ul className={styles.podcasts__items}>
+        {podcasts.map((podcast) => (
+          <PodcastsItem podcast={podcast} key={podcast.slug} />
+        ))}
+      </ul>
+    </section>
   );
 }
 
@@ -28,35 +31,35 @@ function PodcastsItem({ podcast }: PodcastsItemProps) {
   });
 
   return (
-    <li className={styles.podcasts__podcast} key={podcast.slug}>
+    <li className={styles.podcasts__items__item} key={podcast.slug}>
       <a
-        className={styles.podcasts__podcast__link}
+        className={styles.podcasts__items__item__link}
         href={`/podcast/${podcast.slug}`}
       >
         <Image
           image={podcast.image}
           sizes="100vw"
-          className={styles.podcasts__podcast__link__image}
+          className={styles.podcasts__items__item__link__image}
         />
 
-        <div className={styles.podcasts__podcast__link__content}>
-          <ul className={styles.podcasts__podcast__link__content__tags}>
-            <li className={styles.podcasts__podcast__link__content__tags__tag}>
+        <div className={styles.podcasts__items__item__link__content}>
+          <ul className={styles.podcasts__items__item__link__content__tags}>
+            <li className={styles.podcasts__items__item__link__content__tags__tag}>
               {roundNumber(podcast.duration / 60)} minuten
             </li>
-            <li className={styles.podcasts__podcast__link__content__tags__tag}>
+            <li className={styles.podcasts__items__item__link__content__tags__tag}>
               •
             </li>
-            <li className={styles.podcasts__podcast__link__content__tags__tag}>
+            <li className={styles.podcasts__items__item__link__content__tags__tag}>
               {dateFormatted}
             </li>
           </ul>
 
-          <h2 className={styles.podcasts__podcast__link__content__title}>
+          <h2 className={styles.podcasts__items__item__link__content__title}>
             {podcast.episode}. {podcast.title}
           </h2>
 
-          <p className={styles.podcasts__podcast__link__content__description}>
+          <p className={styles.podcasts__items__item__link__content__description}>
             {podcast.description}
           </p>
         </div>

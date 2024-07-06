@@ -1,69 +1,74 @@
 .podcasts {
-  gap: 2rem;
-  display: grid;
+  gap: 2.5rem;
+  display: flex;
   padding: 5rem 0;
-  width: var(--page-content-width);
-  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: column;
 
-  &__podcast {
-    &__link {
-      width: var(--card-item-size);
-      color: #000;
-      border: 1px solid #f1f1f1;
-      background: #fff;
-      display: flex;
-      overflow: hidden;
-      transition: transform 0.2s;
+  &__items {
+    gap: 2rem;
+    display: grid;
+    width: var(--page-content-width);
+    grid-template-columns: 1fr 1fr 1fr;
 
-      // border-radius: 1rem;
-      flex-direction: column;
-      text-decoration: none;
-
-      &__image {
-        filter: brightness(0.9);
-        transition: filter 0.2s;
-      }
-
-      &__content {
-        padding: 1rem;
+    &__item {
+      &__link {
+        width: var(--card-item-size);
+        color: #000;
+        border: 1px solid #f1f1f1;
+        background: #fff;
         display: flex;
-        gap: 0.5rem;
+        overflow: hidden;
+        transition: transform 0.2s;
+
+        // border-radius: 1rem;
         flex-direction: column;
+        text-decoration: none;
 
-        &__tags {
-          gap: 0.5rem;
+        &__image {
+          filter: brightness(0.9);
+          transition: filter 0.2s;
+        }
+
+        &__content {
+          padding: 1rem 1.5rem;
           display: flex;
+          gap: 0.5rem;
+          flex-direction: column;
 
-          &__tag {
-            color: #a63fcf;
-            font-weight: 600;
+          &__tags {
+            gap: 0.5rem;
+            display: flex;
+
+            &__tag {
+              color: #a63fcf;
+              font-weight: 600;
+            }
+          }
+
+          &__title {
+            font-size: 1.15rem;
+          }
+
+          &__description {
+            display: -webkit-box;
+            overflow: hidden;
+
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
           }
         }
 
-        &__title {
-          font-size: 1.15rem;
-        }
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
 
-        &__description {
-          display: -webkit-box;
-          overflow: hidden;
-          font-size: 0.875rem;
+          .podcasts__items__item__link__content__description {
+            text-decoration: underline;
+          }
 
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-        }
-      }
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
-
-        .podcasts__podcast__link__content__description {
-          text-decoration: underline;
-        }
-
-        .podcasts__podcast__link__image {
-          filter: brightness(1);
+          .podcasts__items__item__link__image {
+            filter: brightness(1);
+          }
         }
       }
     }

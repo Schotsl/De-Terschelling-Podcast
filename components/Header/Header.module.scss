@@ -17,8 +17,9 @@
   }
 
   &__content {
-    left: 50%;
     top: 5rem;
+    gap: 0.5rem;
+    left: 50%;
     width: var(--page-content-width);
     display: grid;
     position: absolute;
@@ -29,10 +30,9 @@
   }
 
   &__footer {
-    height: 4rem;
     width: 100%;
+    height: 4rem;
     background: #fff;
-    // Give it a bit of a box with a large radius so its above and below
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   }
 }

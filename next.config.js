@@ -4,7 +4,7 @@ const { withPlausibleProxy } = require("next-plausible");
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const contentSecurityPolicy = `
-  img-src 'self' blob: https://avatars.githubusercontent.com;
+  img-src 'self' data: blob: https://avatars.githubusercontent.com;
   font-src 'self' https://fonts.gstatic.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   worker-src 'self' blob:;

@@ -1,41 +1,16 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
-body,
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   color: #000;
   margin: 0;
-  /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=470689&c2=6a44ba&gt=l&gd=dtl
-*/
   background: #f0f0f0;
-  // background: linear-gradient(135deg, #757d87, #4d4d51);
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
-}
-
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  font-family: var(--font-hind);
 }
 
 main {
   display: flex;
   align-items: center;
-  font-family: var(--font-hind);
-  font-weight: 400;
   flex-direction: column;
 }
 
@@ -48,25 +23,15 @@ h6 {
   margin: 0px;
 
   font-family: var(--font-montserrat);
-  font-weight: 400;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-
-  @include respond-to-md {
-    font-size: 1.75rem;
-  }
-}
-
-h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-
-  @include respond-to-md {
-    font-size: 1.5rem;
-  }
+  font-size: 2.25rem;
 }
 
 p {
@@ -86,14 +51,6 @@ menu {
   padding: 0;
   margin: 0;
 }
-
-// a {
-//   color: #2e2e2e;
-
-//   &:hover {
-//     color: #000;
-//   }
-// }
 
 * {
   box-sizing: border-box;

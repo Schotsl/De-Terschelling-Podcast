@@ -2,7 +2,6 @@ import { getPodcasts, getImage } from "@/helper";
 
 import content from "@/public/content/pages/home/index.json";
 
-import Image from "@/components/Image";
 import Header from "@/components/Header";
 import Podcasts from "@/components/Podcasts";
 

@@ -36,7 +36,7 @@ export default async function PodcastPage({
   const podcast = podcasts.find((podcast) => podcast.slug === params.slug)!;
 
   return (
-    <section>
+    <main>
       <Header
         links={content.links}
         image={podcast.image}
@@ -44,6 +44,6 @@ export default async function PodcastPage({
         banner={banner}
         description={podcast.description}
       />
-    </section>
+    </main>
   );
 }

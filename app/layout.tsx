@@ -1,10 +1,12 @@
 import "./layout.scss";
 
+import content from "@/public/content/pages/home/index.json";
+
 import PlausibleProvider from "next-plausible";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { Metadata } from "next";
-import { Open_Sans, Hind, Montserrat } from "next/font/google";
+import { Hind, Montserrat } from "next/font/google";
 import { ReactNode } from "react";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -23,7 +25,10 @@ const hind = Hind({
   variable: "--font-hind",
 });
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  title: content.title,
+  description: content.description,
+};
 
 export default async function RootLayout({
   children,

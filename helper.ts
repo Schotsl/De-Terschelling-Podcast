@@ -119,14 +119,11 @@ export async function getPodcasts(): Promise<Podcast[]> {
   });
 
   const podcastsResolved = await Promise.all(podcastsPromises);
-  return [
-    ...podcastsResolved,
-    ...podcastsResolved,
-    ...podcastsResolved,
-    ...podcastsResolved,
-    ...podcastsResolved,
-    ...podcastsResolved,
-  ];
+  const podcastsOrdered = podcastsResolved.sort(
+    (a, b) => a.episode - b.episode
+  );
+
+  return podcastsOrdered;
 }
 
 export function roundNumber(number: number, precision = 0) {

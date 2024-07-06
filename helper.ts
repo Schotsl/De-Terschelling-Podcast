@@ -128,3 +128,10 @@ export async function getPodcasts(): Promise<Podcast[]> {
     ...podcastsResolved,
   ];
 }
+
+export function roundNumber(number: number, precision = 0) {
+  const factor = Math.pow(10, precision);
+  const rounded = Math.round(number * factor) / factor;
+
+  return rounded;
+}

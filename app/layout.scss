@@ -9,11 +9,33 @@ html {
 body {
   color: #000;
   margin: 0;
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=470689&c2=6a44ba&gt=l&gd=dtl
+*/
+  background: #f0f0f0;
+  // background: linear-gradient(135deg, #757d87, #4d4d51);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 main {
   display: flex;
   align-items: center;
+  font-family: var(--font-hind);
+  font-weight: 400;
   flex-direction: column;
 }
 
@@ -25,6 +47,7 @@ h5,
 h6 {
   margin: 0px;
 
+  font-family: var(--font-montserrat);
   font-weight: 400;
 }
 
@@ -64,13 +87,13 @@ menu {
   margin: 0;
 }
 
-a {
-  color: #2e2e2e;
+// a {
+//   color: #2e2e2e;
 
-  &:hover {
-    color: #000;
-  }
-}
+//   &:hover {
+//     color: #000;
+//   }
+// }
 
 * {
   box-sizing: border-box;

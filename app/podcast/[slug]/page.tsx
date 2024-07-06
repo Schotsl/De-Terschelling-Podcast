@@ -38,6 +38,7 @@ export default async function PodcastPage({
   return (
     <section>
       <Header
+        links={content.links}
         image={podcast.image}
         title={podcast.title}
         banner={banner}

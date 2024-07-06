@@ -4,16 +4,23 @@ import PlausibleProvider from "next-plausible";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Hind, Montserrat } from "next/font/google";
 import { ReactNode } from "react";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 config.autoAddCss = false;
 
-const openSans = Open_Sans({
-  weight: ["400", "700", "600"],
+const montserrat = Montserrat({
+  weight: ["600"],
   subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
+const hind = Hind({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-hind",
 });
 
 export const metadata: Metadata = {};
@@ -25,7 +32,7 @@ export default async function RootLayout({
 }) {
   return (
     <PlausibleProvider domain="de-terschelling-podcast.nl">
-      <html lang="en" className={openSans.className}>
+      <html lang="en" className={`${montserrat.variable} ${hind.variable}`}>
         <head>
           <link
             rel="apple-touch-icon"

@@ -31,6 +31,8 @@ export default function Header({
         <HeaderTitle title={title} />
         <HeaderDescription links={links} description={description} />
       </div>
+
+      <div className={styles.banner__footer}></div>
     </header>
   );
 }

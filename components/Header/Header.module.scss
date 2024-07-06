@@ -1,28 +1,38 @@
 .banner {
-  --header-banner-height: 22rem;
+  --header-banner-height: 32rem;
 
   width: 100%;
-  height: calc(var(--header-banner-height) + var(--card-item-size) / 2);
+  height: calc(var(--header-banner-height) + 4rem);
   position: relative;
 
   &__image {
     width: 100%;
+    z-index: -1;
     height: var(--header-banner-height);
-    filter: brightness(0.35);
+    filter: blur(2px) brightness(0.65);
+    transform: scale(1.1);
 
     object-fit: cover;
     object-position: center;
   }
 
   &__content {
-    gap: 2rem;
     left: 50%;
+    top: 5rem;
     width: var(--page-content-width);
     display: grid;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 
-    grid-template-columns: var(--card-item-size) 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: calc(var(--card-item-size) + 2rem) 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  &__footer {
+    height: 4rem;
+    width: 100%;
+    background: #fff;
+    // Give it a bit of a box with a large radius so its above and below
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   }
 }

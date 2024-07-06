@@ -1,11 +1,12 @@
-import { Image as ImageType, Links } from "@/types";
-
-import Image from "@/components/Image";
-import HeaderImage from "./HeaderImage";
+import { Image as ImageType, Links, Breadcrumb } from "@/types";
 
 import styles from "./Header.module.scss";
-import HeaderTitle from "./HeaderTitle";
-import HeaderDescription from "./HeaderDescription";
+
+import Image from "@/components/Image";
+import HeaderImage from "./Image";
+import HeaderTitle from "./Title";
+import HeaderBreadcrumb from "./Breadcrumb";
+import HeaderDescription from "./Description";
 
 type HeaderProps = {
   title: string;
@@ -13,6 +14,7 @@ type HeaderProps = {
   image: ImageType;
   banner: ImageType;
   description: string;
+  breadcrumbs: Breadcrumb[];
 };
 
 export default function Header({
@@ -21,6 +23,7 @@ export default function Header({
   image,
   banner,
   description,
+  breadcrumbs,
 }: HeaderProps) {
   return (
     <header className={styles.banner}>
@@ -32,7 +35,7 @@ export default function Header({
         <HeaderDescription links={links} description={description} />
       </div>
 
-      <div className={styles.banner__footer}></div>
+      <HeaderBreadcrumb breadcrumbs={breadcrumbs} />
     </header>
   );
 }

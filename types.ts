@@ -1,3 +1,8 @@
+export type Breadcrumb = {
+  title: string;
+  href: string;
+};
+
 export type Image = {
   src: string;
   alt: string;

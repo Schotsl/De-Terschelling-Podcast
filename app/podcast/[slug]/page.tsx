@@ -42,6 +42,10 @@ export default async function PodcastPage({
         image={podcast.image}
         title={podcast.title}
         banner={banner}
+        breadcrumbs={[
+          { title: "Podcasts", href: "/#podcasts" },
+          { title: podcast.title, href: `/podcast/${podcast.slug}` },
+        ]}
         description={podcast.description}
       />
     </main>

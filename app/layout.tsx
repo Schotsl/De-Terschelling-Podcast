@@ -25,7 +25,7 @@ const hind = Hind({
   variable: "--font-hind",
 });
 
-const url = `${process.env.NEXT_PUBLIC_BASE_URL}/banner-1200x630.png`;
+const url = `${process.env.NEXT_PUBLIC_URL}/banner-1200x630.png`;
 const alt = "Timo en Sjors voor fotobehang van de Brandaris";
 
 const { title, description } = content;
@@ -33,7 +33,7 @@ const { title, description } = content;
 export const metadata: Metadata = {
   title,
   description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
 
   openGraph: {
     type: "website",

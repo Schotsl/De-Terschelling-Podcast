@@ -15,7 +15,7 @@ export async function GET() {
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
   const podcastsFiltered = podcasts.filter(
-    (podcast) => podcast.publication <= currentDate,
+    (podcast) => podcast.publication <= currentDate
   );
 
   const categories = home.categories.map((text) => {
@@ -55,7 +55,7 @@ export async function GET() {
         "itunes:explicit": home.explicit === true,
       },
       {
-        "itunes:author": "Timo Steenmeijer & Sjors van Holst",
+        "itunes:author": "Sjors van Holst & Timo Steenmeijer",
       },
       {
         link: url,

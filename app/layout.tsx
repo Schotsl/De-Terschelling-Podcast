@@ -25,9 +25,47 @@ const hind = Hind({
   variable: "--font-hind",
 });
 
+const url = `${process.env.NEXT_PUBLIC_BASE_URL}/banner-1200x630.png`;
+const alt = "Timo en Sjors voor fotobehang van de Brandaris";
+
+const { title, description } = content;
+
 export const metadata: Metadata = {
-  title: content.title,
-  description: content.description,
+  title,
+  description,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+
+  openGraph: {
+    type: "website",
+    title,
+    locale: "nl_NL",
+    siteName: title,
+    images: [
+      {
+        url,
+        alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    description,
+  },
+
+  twitter: {
+    images: [
+      {
+        url,
+        alt,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  authors: [
+    { name: "Sjors van Holst", url: "https://sjorsvanholst.nl/" },
+    { name: "Timo Steenmeijer" },
+  ],
 };
 
 export default async function RootLayout({

@@ -17,7 +17,7 @@ media_folder: "/content/images"
 public_folder: "/content/images"
 
 site_url: "https://de-terschelling-podcast.vercel.app/"
-logo_url: "https://de-terschelling-podcast.vercel.app/favicon-600x600.png"
+logo_url: "https://de-terschelling-podcast.vercel.app/favicon-512x512.png"
 
 collections:
   - name: "pages"

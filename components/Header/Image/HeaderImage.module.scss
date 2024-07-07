@@ -7,9 +7,9 @@
     grid-column: 1 / 2;
   }
 
-  width: 22rem;
-  height: 22rem;
-  margin: 0 0 1rem 0;
+  width: var(--podcast-width);
+  height: var(--podcast-width);
+  margin: 0 0 2rem 0;
 
   overflow: hidden;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);

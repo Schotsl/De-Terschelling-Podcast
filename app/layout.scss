@@ -61,15 +61,22 @@ menu {
 }
 
 :root {
-  --card-item-size: 22rem;
+  --podcast-width: calc(100vw - 4rem);
+  --breadcrumb-height: 5rem;
 
-  --page-content-width: 46rem;
+  --page-content-width: calc(100vw - 4rem);
+  --page-content-spacing: 3rem;
+
+  @include respond-to-md {
+    --podcast-width: 22rem;
+
+    --page-content-spacing: 5rem;
+    --page-content-width: 46rem;
+  }
 
   @include respond-to-xl {
     --page-content-width: 70rem;
   }
-
-  --page-content-vertical: 5rem;
 
   --color-white: #ffffff;
   --color-black: #000000;

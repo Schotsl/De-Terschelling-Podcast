@@ -5,10 +5,16 @@ import Image from "../Image";
 
 import styles from "./Podcasts.module.scss";
 
-export default function Podcasts({ podcasts }: { podcasts: Podcast[] }) {
+type PodcastsProps = {
+  podcasts: Podcast[];
+};
+
+export default function Podcasts({ podcasts }: PodcastsProps) {
   return (
     <section className={styles.podcasts}>
-      <h2 className={styles.podcasts__title}>Onze laatste afleveringen</h2>
+      <h2 className={styles.podcasts__title} id="podcasts">
+        Onze laatste afleveringen
+      </h2>
       <ul className={styles.podcasts__items}>
         {podcasts.map((podcast) => (
           <PodcastsItem podcast={podcast} key={podcast.slug} />
@@ -44,13 +50,19 @@ function PodcastsItem({ podcast }: PodcastsItemProps) {
 
         <div className={styles.podcasts__items__item__link__content}>
           <ul className={styles.podcasts__items__item__link__content__tags}>
-            <li className={styles.podcasts__items__item__link__content__tags__tag}>
+            <li
+              className={styles.podcasts__items__item__link__content__tags__tag}
+            >
               {roundNumber(podcast.duration / 60)} minuten
             </li>
-            <li className={styles.podcasts__items__item__link__content__tags__tag}>
+            <li
+              className={styles.podcasts__items__item__link__content__tags__tag}
+            >
               •
             </li>
-            <li className={styles.podcasts__items__item__link__content__tags__tag}>
+            <li
+              className={styles.podcasts__items__item__link__content__tags__tag}
+            >
               {dateFormatted}
             </li>
           </ul>
@@ -59,7 +71,9 @@ function PodcastsItem({ podcast }: PodcastsItemProps) {
             {podcast.episode}. {podcast.title}
           </h2>
 
-          <p className={styles.podcasts__items__item__link__content__description}>
+          <p
+            className={styles.podcasts__items__item__link__content__description}
+          >
             {podcast.description}
           </p>
         </div>

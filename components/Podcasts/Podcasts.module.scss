@@ -1,13 +1,17 @@
 .podcasts {
   gap: 2.5rem;
+  width: var(--page-content-width);
   display: flex;
-  padding: 5rem 0;
+  padding: 3rem 0 5rem;
   flex-direction: column;
+
+  &__title {
+    padding: 2rem 0 0;
+  }
 
   &__items {
     gap: 2rem;
     display: grid;
-    width: var(--page-content-width);
     grid-template-columns: 1fr 1fr 1fr;
 
     &__item {
@@ -20,7 +24,6 @@
         overflow: hidden;
         transition: transform 0.2s;
 
-        // border-radius: 1rem;
         flex-direction: column;
         text-decoration: none;
 

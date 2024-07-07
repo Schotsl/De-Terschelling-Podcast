@@ -1,7 +1,8 @@
 import { getImage, getPodcasts } from "@/helper";
 
-import content from "@/public/content/pages/home/index.json";
 import Header from "@/components/Header";
+import content from "@/public/content/pages/home/index.json";
+import PodcastPagePlayer from "./Player";
 
 export async function generateStaticParams() {
   const podcasts = await getPodcasts();
@@ -48,6 +49,8 @@ export default async function PodcastPage({
         ]}
         description={podcast.description}
       />
+
+      <PodcastPagePlayer podcast={podcast} />
     </main>
   );
 }

@@ -1,0 +1,17 @@
+.podcasts {
+  gap: 2rem;
+  width: var(--page-content-width);
+  display: flex;
+  padding: 3rem 0 5rem;
+  flex-direction: column;
+
+  &__title {
+    padding: 2rem 0 0;
+  }
+
+  &__embed {
+    border: none;
+    height: 352px;
+    border-radius: 1rem;
+  }
+}

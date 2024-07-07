@@ -2,7 +2,7 @@ backend:
   name: github
   repo: schotsl/de-terschelling-podcast
 
-  base_url: https://de-terschelling-podcast.vercel.app/
+  base_url: https://de-terschelling-podcast.nl/
   auth_endpoint: api/auth
 
   commit_messages:
@@ -16,8 +16,8 @@ backend:
 media_folder: "/content/images"
 public_folder: "/content/images"
 
-site_url: "https://de-terschelling-podcast.vercel.app/"
-logo_url: "https://de-terschelling-podcast.vercel.app/favicon-512x512.png"
+site_url: "https://de-terschelling-podcast.nl/"
+logo_url: "https://de-terschelling-podcast.nl/favicon-512x512.png"
 
 collections:
   - name: "pages"

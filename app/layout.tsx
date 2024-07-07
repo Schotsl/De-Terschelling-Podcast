@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
 
   openGraph: {
+    url,
     type: "website",
     title,
     locale: "nl_NL",

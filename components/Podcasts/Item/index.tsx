@@ -1,5 +1,4 @@
 import { Podcast } from "@/types";
-import { roundNumber } from "@/helper";
 
 import styles from "./Podcasts.module.scss";
 
@@ -23,9 +22,7 @@ export default function PodcastsItem({ podcast }: PodcastsItemProps) {
         <div className={styles.item__link__content}>
           <Info podcast={podcast} />
 
-          <h2 className={styles.item__link__content__title}>
-            {podcast.episode}. {podcast.title}
-          </h2>
+          <h2 className={styles.item__link__content__title}>{podcast.title}</h2>
 
           <p className={styles.item__link__content__description}>
             {podcast.description}

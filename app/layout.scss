@@ -63,7 +63,12 @@ menu {
 :root {
   --card-item-size: 22rem;
 
-  --page-content-width: 70rem;
+  --page-content-width: 46rem;
+
+  @include respond-to-xl {
+    --page-content-width: 70rem;
+  }
+
   --page-content-vertical: 5rem;
 
   --color-white: #ffffff;

@@ -32,13 +32,13 @@ function InfoPodcast({ podcast }: InfoPodcast) {
   return (
     <>
       <li className={styles.info__item}>{podcast.episode}e aflevering</li>
-      <li className={styles.info__item}>•</li>
 
+      <li className={styles.info__item}>•</li>
       <li className={styles.info__item}>
         {roundNumber(podcast.duration / 60)} minuten
       </li>
-      <li className={styles.info__item}>•</li>
 
+      <li className={styles.info__item}>•</li>
       <li className={styles.info__item}>{dateFormatted}</li>
     </>
   );
@@ -51,9 +51,21 @@ type InfoPodcasts = {
 function InfoPodcasts({ podcasts }: InfoPodcasts) {
   const length = podcasts.length;
 
+  const dateLatest = podcasts[length - 1].publication;
+  const dateLatestFormatted = new Date(dateLatest).toLocaleDateString("nl-NL", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <li className={styles.info__item}>
-      {length} aflevering{length > 1 ? "en" : ""}
-    </li>
+    <>
+      <li className={styles.info__item}>
+        {length} aflevering{length > 1 ? "en" : ""}
+      </li>
+
+      <li className={styles.info__item}>•</li>
+      <li className={styles.info__item}>{dateLatestFormatted}</li>
+    </>
   );
 }

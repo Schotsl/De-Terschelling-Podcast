@@ -1,34 +1,37 @@
-.banner {
-  --header-banner-padding: calc(var(--page-content-vertical) * 2);
-  --header-banner-height: calc(
-    var(--header-banner-padding) + var(--card-item-size)
-  );
+@import "@/styles/mixins.scss";
 
+.banner {
   width: 100%;
-  height: calc(var(--header-banner-height) + 4rem);
+  display: flex;
   position: relative;
 
+  align-items: center;
+  flex-direction: column;
+
   &__content {
-    top: 5rem;
     gap: 0.5rem;
-    left: 50%;
     width: var(--page-content-width);
     display: grid;
-    position: absolute;
-    transform: translateX(-50%);
+    padding: var(--page-content-vertical) 0;
 
-    grid-template-columns: calc(var(--card-item-size) + 2rem) 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+
+    @include respond-to-xl {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+    }
   }
 
   &__background {
-    width: 100%;
+    inset: 0;
+    left: -1rem;
+    top: -1rem;
+    right: -1rem;
+    bottom: calc(var(--page-content-vertical) + 1rem);
     z-index: -1;
-    height: var(--header-banner-height);
     filter: blur(2px) brightness(0.5);
+    position: absolute;
     transform: scale(1.1);
-
-    object-fit: cover;
-    object-position: center;
   }
 }

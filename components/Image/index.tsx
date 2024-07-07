@@ -29,36 +29,35 @@ export default function Image({
   }
 
   return (
-    <div
-      style={{ aspectRatio: `${width}/${height}` }}
-      className={`${styles.image} ${className}`}
-    >
-      <NextImage
-        src={src}
-        alt={alt}
-        sizes={sizes}
-        width={width}
-        height={height}
-        onLoad={onLoad}
-        quality={quality}
-        priority={priority}
-        className={styles.image__image}
-      />
+    <div className={`${styles.image} ${className}`}>
+      <div className={styles.image__wrapper}>
+        <NextImage
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          width={width}
+          height={height}
+          onLoad={onLoad}
+          quality={quality}
+          priority={priority}
+          className={styles.image__wrapper__image}
+        />
 
-      {loading && (
-        <div className={styles.image__overlay}>
-          <div className={styles.image__overlay__image}>
-            {/* eslint-disable-next-line */}
-            <img
-              src={`data:image/svg+xml;base64,${blur}`}
-              alt={alt}
-              className={styles.image__overlay__image__blur}
-            />
+        {loading && (
+          <div className={styles.image__wrapper__overlay}>
+            <div className={styles.image__wrapper__overlay__image}>
+              {/* eslint-disable-next-line */}
+              <img
+                src={`data:image/svg+xml;base64,${blur}`}
+                alt={alt}
+                className={styles.image__wrapper__overlay__image__blur}
+              />
+            </div>
+
+            <div className={styles.image__wrapper__overlay__skeleton}></div>
           </div>
-
-          <div className={styles.image__overlay__skeleton}></div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

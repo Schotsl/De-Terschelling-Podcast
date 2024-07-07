@@ -18,6 +18,7 @@ export type Podcast = {
   audio: string;
   image: Image;
   episode: number;
+  spotify?: string;
   subtitle: string;
   duration: number;
   explicit: boolean;

@@ -93,6 +93,7 @@ collections:
       - { name: "slug", label: "Slug", widget: "string" }
       - { name: "episode", label: "Episode", widget: "number" }
       - { name: "subtitle", label: "Subtitle", widget: "string" }
+      - { name: "spotify", label: "Spotify ID", widget: "string" }
       - { name: "description", label: "Description", widget: "text" }
       - { name: "publication", label: "Publication date", widget: "datetime" }
       - {

@@ -15,4 +15,9 @@
     height: 352px;
     border-radius: 1rem;
   }
+
+  &__warning {
+    margin: -1rem 0 0;
+    max-width: 65ch;
+  }
 }

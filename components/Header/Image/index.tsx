@@ -8,5 +8,11 @@ type HeaderImageProps = {
 };
 
 export default function HeaderImage({ image }: HeaderImageProps) {
-  return <Image image={image} sizes="22rem" className={styles.image} />;
+  return (
+    <Image
+      image={image}
+      sizes={"(min-width: 48rem) 22rem, 100vw"}
+      className={styles.image}
+    />
+  );
 }

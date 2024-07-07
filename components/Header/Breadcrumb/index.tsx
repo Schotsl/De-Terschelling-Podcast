@@ -21,7 +21,6 @@ export default function HeaderBreadcrumb({
               size={"sm"}
               className={styles.breadcrumb__list__item__link__home}
             />
-            Home
           </Link>
         </li>
 

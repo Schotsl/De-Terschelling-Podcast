@@ -33,7 +33,7 @@ export default function Header({
     <header className={styles.banner}>
       <Image
         image={banner}
-        sizes="100vw"
+        sizes="50vw"
         className={styles.banner__background}
       />
 

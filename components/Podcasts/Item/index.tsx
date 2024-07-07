@@ -15,7 +15,7 @@ export default function PodcastsItem({ podcast }: PodcastsItemProps) {
       <a className={styles.item__link} href={`/podcast/${podcast.slug}`}>
         <Image
           image={podcast.image}
-          sizes="100vw"
+          sizes={"(min-width: 48rem) 22rem, 100vw"}
           className={styles.item__link__image}
         />
 

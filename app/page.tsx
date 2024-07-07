@@ -23,6 +23,7 @@ export default async function Page() {
         links={content.links}
         title={content.title}
         banner={banner}
+        podcasts={podcasts}
         breadcrumbs={[{ title: "Podcasts", href: "/#podcasts" }]}
         description={content.description}
       />

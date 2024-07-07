@@ -1,4 +1,4 @@
-import { Image as ImageType, Links, Breadcrumb } from "@/types";
+import { Image as ImageType, Links, Breadcrumb, Podcast } from "@/types";
 
 import styles from "./Header.module.scss";
 
@@ -13,6 +13,8 @@ type HeaderProps = {
   links: Links;
   image: ImageType;
   banner: ImageType;
+  podcast?: Podcast;
+  podcasts?: Podcast[];
   description: string;
   breadcrumbs: Breadcrumb[];
 };
@@ -22,6 +24,8 @@ export default function Header({
   links,
   image,
   banner,
+  podcast,
+  podcasts,
   description,
   breadcrumbs,
 }: HeaderProps) {
@@ -32,7 +36,12 @@ export default function Header({
       <div className={styles.banner__content}>
         <HeaderImage image={image} />
         <HeaderTitle title={title} />
-        <HeaderDescription links={links} description={description} />
+        <HeaderDescription
+          links={links}
+          podcast={podcast}
+          podcasts={podcasts}
+          description={description}
+        />
       </div>
 
       <HeaderBreadcrumb breadcrumbs={breadcrumbs} />

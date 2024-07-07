@@ -1,0 +1,9 @@
+.info {
+  gap: 0.5rem;
+  display: flex;
+
+  &__item {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+}

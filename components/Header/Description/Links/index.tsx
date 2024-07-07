@@ -17,7 +17,11 @@ export default function HeaderDescriptionLinks({
   return (
     <ul className={styles.links}>
       <li className={`${styles.links__item} ${styles["links__item--apple"]}`}>
-        <a className={styles.links__item__link} href={links.apple}>
+        <a
+          href={links.apple}
+          target="_blank"
+          className={styles.links__item__link}
+        >
           <Image
             src={appleIcon}
             alt="Apple Podcasts"
@@ -27,7 +31,11 @@ export default function HeaderDescriptionLinks({
       </li>
 
       <li className={`${styles.links__item} ${styles["links__item--podimo"]}`}>
-        <a className={styles.links__item__link} href={links.podimo}>
+        <a
+          href={links.podimo}
+          target="_blank"
+          className={styles.links__item__link}
+        >
           <Image
             src={podimoIcon}
             alt="Podimo"
@@ -37,7 +45,11 @@ export default function HeaderDescriptionLinks({
       </li>
 
       <li className={`${styles.links__item} ${styles["links__item--spotify"]}`}>
-        <a className={styles.links__item__link} href={links.spotify}>
+        <a
+          href={links.spotify}
+          target="_blank"
+          className={styles.links__item__link}
+        >
           <Image
             src={spotifyIcon}
             alt="Spotify"

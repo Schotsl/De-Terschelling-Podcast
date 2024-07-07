@@ -1,6 +1,10 @@
 @import "@/styles/variables.scss";
 @import "@/styles/mixins.scss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--color-black);
   margin: 0;
@@ -58,9 +62,9 @@ menu {
 
 :root {
   --card-item-size: 22rem;
-  --card-item-gap: 2rem;
 
   --page-content-width: 70rem;
+  --page-content-vertical: 5rem;
 
   --color-white: #ffffff;
   --color-black: #000000;

@@ -2,10 +2,11 @@
   gap: 2.5rem;
   width: var(--page-content-width);
   display: flex;
-  padding: 3rem 0 5rem;
+  padding: var(--page-content-vertical) 0;
   flex-direction: column;
 
   &__title {
+    margin: -2rem 0 0;
     padding: 2rem 0 0;
   }
 

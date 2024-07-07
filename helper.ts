@@ -76,7 +76,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
-    podcastName.endsWith(".json")
+    podcastName.endsWith(".json"),
   );
 
   const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
@@ -120,7 +120,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
 
   const podcastsResolved = await Promise.all(podcastsPromises);
   const podcastsOrdered = podcastsResolved.sort(
-    (a, b) => a.episode - b.episode
+    (a, b) => a.episode - b.episode,
   );
 
   return podcastsOrdered;

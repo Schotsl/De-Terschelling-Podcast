@@ -31,7 +31,11 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header className={styles.banner}>
-      <Image image={banner} sizes="100vw" className={styles.banner__image} />
+      <Image
+        image={banner}
+        sizes="100vw"
+        className={styles.banner__background}
+      />
 
       <div className={styles.banner__content}>
         <HeaderImage image={image} />

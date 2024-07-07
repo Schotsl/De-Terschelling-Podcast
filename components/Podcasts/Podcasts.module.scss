@@ -17,9 +17,9 @@
     &__item {
       &__link {
         width: var(--card-item-size);
-        color: #000;
-        border: 1px solid #f1f1f1;
-        background: #fff;
+        color: var(--color-black);
+        border: 1px solid var(--color-border);
+        background: var(--color-white);
         display: flex;
         overflow: hidden;
         transition: transform 0.2s;
@@ -43,7 +43,7 @@
             display: flex;
 
             &__tag {
-              color: #a63fcf;
+              color: var(--color-accent);
               font-weight: 600;
             }
           }

@@ -24,57 +24,5 @@
     @include respond-to-xl {
       grid-template-columns: 1fr 1fr 1fr;
     }
-
-    &__item {
-      &__link {
-        width: var(--podcast-width);
-        color: var(--color-black);
-        border: 1px solid var(--color-border);
-        display: flex;
-        overflow: hidden;
-        transition: transform 0.2s;
-        background: var(--color-white);
-
-        flex-direction: column;
-        text-decoration: none;
-
-        &__image {
-          filter: brightness(0.9);
-          transition: filter 0.2s;
-        }
-
-        &__content {
-          padding: 1rem 1.5rem;
-          display: flex;
-          gap: 0.5rem;
-          flex-direction: column;
-
-          &__title {
-            font-size: 1.15rem;
-          }
-
-          &__description {
-            display: -webkit-box;
-            overflow: hidden;
-
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-          }
-        }
-
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
-
-          .podcasts__items__item__link__content__description {
-            text-decoration: underline;
-          }
-
-          .podcasts__items__item__link__image {
-            filter: brightness(1);
-          }
-        }
-      }
-    }
   }
 }

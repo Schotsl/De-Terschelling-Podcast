@@ -15,7 +15,7 @@ export default function PodcastPagePlayer({ podcast }: PodcastPagePlayerProps) {
 
       {spotify ? (
         <iframe
-          src="https://open.spotify.com/embed/episode/6MPG51wgG2M9I9ybTEXlLE?utm_source=generator"
+          src={`https://open.spotify.com/embed/episode/${spotify}?utm_source=generator`}
           width="100%"
           height="352"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

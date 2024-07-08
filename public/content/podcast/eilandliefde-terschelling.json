@@ -1,14 +1,13 @@
 {
   "slug": "eilandliefde-terschelling",
-  "publication": "2024-07-30T10:10:00.000Z",
-  "explicit": false,
-  "audio": "/content/podcast/audio/intro.mp3",
-  "spotify": "6MPG51wgG2M9I9ybTEXlLE",
+  "publication": "2024-07-08T06:00:00.000Z",
+  "explicit": true,
+  "audio": "/content/podcast/audio/eilandliefde-terschelling.mp3",
   "subtitle": "Een introductie tot de Terschellinger saga.",
   "title": "Eilandliefde Terschelling",
   "type": "full",
   "image": {
-    "alt": "Image alt",
+    "alt": "Een sweater met de tekst 'I love Terschelling' erop.",
     "src": "/content/podcast/cover/IMG_1178.png"
   },
   "episode": 1,

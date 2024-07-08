@@ -14,10 +14,6 @@ export async function GET() {
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
-  const podcastsFiltered = podcasts.filter(
-    (podcast) => podcast.publication <= currentDate
-  );
-
   const categories = home.categories.map((text) => {
     return {
       "itunes:category": [{ _attr: { text } }],
@@ -74,7 +70,7 @@ export async function GET() {
     ],
   });
 
-  podcastsFiltered.map((podcast) => {
+  podcasts.map((podcast) => {
     const episodeImage = encodeURIComponent(podcast.image.src);
     const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
 

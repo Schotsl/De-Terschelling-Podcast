@@ -43,7 +43,12 @@ collections:
             fields:
               - { name: "podimo", label: "Podimo", widget: "string" }
               - { name: "apple", label: "Apple Podcasts", widget: "string" }
-              - { name: "spotify", label: "Spotify", widget: "string" }
+              - {
+                  name: "spotify",
+                  label: "Spotify",
+                  widget: "string",
+                  required: false,
+                }
           - name: "image"
             label: "Image"
             widget: "object"

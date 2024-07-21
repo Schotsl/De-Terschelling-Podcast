@@ -43,12 +43,7 @@ collections:
             fields:
               - { name: "podimo", label: "Podimo", widget: "string" }
               - { name: "apple", label: "Apple Podcasts", widget: "string" }
-              - {
-                  name: "spotify",
-                  label: "Spotify",
-                  widget: "string",
-                  required: false,
-                }
+              - { name: "spotify", label: "Spotify", widget: "string" }
           - name: "image"
             label: "Image"
             widget: "object"
@@ -98,7 +93,12 @@ collections:
       - { name: "slug", label: "Slug", widget: "string" }
       - { name: "episode", label: "Episode", widget: "number" }
       - { name: "subtitle", label: "Subtitle", widget: "string" }
-      - { name: "spotify", label: "Spotify ID", widget: "string" }
+      - {
+          name: "spotify",
+          label: "Spotify ID",
+          widget: "string",
+          required: false,
+        }
       - { name: "description", label: "Description", widget: "text" }
       - { name: "publication", label: "Publication date", widget: "datetime" }
       - {

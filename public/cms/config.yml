@@ -100,12 +100,7 @@ collections:
           required: false,
         }
       - { name: "description", label: "Description", widget: "text" }
-      - {
-          name: "publication",
-          label: "Publication date",
-          widget: "datetime",
-          picker_utc: false,
-        }
+      - { name: "publication", label: "Publication date", widget: "datetime" }
       - {
           name: "audio",
           label: "Audio",

@@ -5,6 +5,8 @@ import content from "@/public/content/pages/home/index.json";
 import Header from "@/components/Header";
 import Podcasts from "@/components/Podcasts";
 
+export const revalidate = 3600;
+
 export default async function Page() {
   const promiseImage = getImage(content.image);
   const promiseHeader = getImage(content.banner);

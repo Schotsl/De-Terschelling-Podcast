@@ -87,27 +87,16 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
 
-    const audioPath = `${process.cwd()}/public${podcastParsed.audio}`;
-    const audioStat = fs.statSync(audioPath);
-    const audioBuffer = fs.readFileSync(audioPath);
+    const { duration, size, audio } = podcastParsed;
 
-    const audioSize = audioStat.size;
-    const audioType = "audio/mpeg";
-
-    const promiseImage = getImage(podcastParsed.image);
-    const promiseDuration = mp3Duration(audioBuffer);
-
-    const promiseResults = await Promise.all([promiseImage, promiseDuration]);
-
-    const image = promiseResults[0];
-    const duration = Math.round(promiseResults[1]);
+    const image = await getImage(podcastParsed.image);
     const explicit = podcastParsed.explicit === true;
     const publication = new Date(podcastParsed.publication);
 
     const enclosure = {
-      url: `${process.env.NEXT_PUBLIC_CDN}${podcastParsed.audio}`,
-      size: audioSize,
-      type: audioType,
+      url: `https://de-terschelling-podcast-zone.b-cdn.net/${podcastParsed.audio}`,
+      type: "audio/mpeg",
+      size,
     };
 
     return {

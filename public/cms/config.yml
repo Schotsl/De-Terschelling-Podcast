@@ -124,7 +124,7 @@ collections:
         widget: "object"
         summary: "{{fields.audio}}"
         fields:
-          - { name: "size", label: "Size", widget: "string" }
+          - { name: "zone", label: "Zone", widget: "string" }
           - { name: "audio", label: "Audio", widget: "string" }
           - { name: "duration", label: "Duration", widget: "string" }
 

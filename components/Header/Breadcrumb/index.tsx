@@ -15,7 +15,11 @@ export default function HeaderBreadcrumb({
     <nav className={styles.breadcrumb}>
       <ul className={styles.breadcrumb__list}>
         <li className={styles.breadcrumb__list__item} key="/">
-          <Link className={styles.breadcrumb__list__item__link} href="/">
+          <Link
+            href="/"
+            aria-label="Home"
+            className={styles.breadcrumb__list__item__link}
+          >
             <FontAwesomeIcon
               icon={faHome}
               size={"sm"}
@@ -33,6 +37,7 @@ export default function HeaderBreadcrumb({
           <li className={styles.breadcrumb__list__item} key={breadcrumb.href}>
             <Link
               href={breadcrumb.href}
+              aria-label={breadcrumb.title}
               className={styles.breadcrumb__list__item__link}
             >
               {breadcrumb.title}

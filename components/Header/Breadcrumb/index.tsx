@@ -22,9 +22,7 @@ export default function HeaderBreadcrumb({
               className={styles.breadcrumb__list__item__link__home}
             />
           </Link>
-        </li>
 
-        <li className={styles.breadcrumb__list__item} key="separator">
           <FontAwesomeIcon
             icon={faChevronRight}
             className={styles.breadcrumb__list__item__chevron}
@@ -32,29 +30,22 @@ export default function HeaderBreadcrumb({
         </li>
 
         {breadcrumbs.map((breadcrumb, index) => (
-          <>
-            <li className={styles.breadcrumb__list__item} key={breadcrumb.href}>
-              <Link
-                href={breadcrumb.href}
-                className={styles.breadcrumb__list__item__link}
-              >
-                {breadcrumb.title}
-              </Link>
-            </li>
+          <li className={styles.breadcrumb__list__item} key={breadcrumb.href}>
+            <Link
+              href={breadcrumb.href}
+              className={styles.breadcrumb__list__item__link}
+            >
+              {breadcrumb.title}
+            </Link>
 
             {index !== breadcrumbs.length - 1 && (
-              <li
-                key={`${breadcrumb.href}-seperator`}
-                className={styles.breadcrumb__list__item}
-              >
-                <FontAwesomeIcon
-                  icon={faChevronRight}
-                  size={"sm"}
-                  className={styles.breadcrumb__list__item__chevron}
-                />
-              </li>
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                size={"sm"}
+                className={styles.breadcrumb__list__item__chevron}
+              />
             )}
-          </>
+          </li>
         ))}
       </ul>
     </nav>

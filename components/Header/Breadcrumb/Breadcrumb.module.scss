@@ -27,6 +27,7 @@
     white-space: nowrap;
 
     &__item {
+      gap: 1rem;
       display: flex;
       align-items: center;
 
@@ -47,7 +48,7 @@
       }
 
       &__chevron {
-        margin: -2px 0 0;
+        margin: -2px 0 0 0;
       }
 
       &:last-of-type {

@@ -3,6 +3,12 @@ export type Breadcrumb = {
   href: string;
 };
 
+export type Audio = {
+  zone: string;
+  size: number;
+  duration: number;
+};
+
 export type Image = {
   src: string;
   alt: string;
@@ -15,21 +21,15 @@ export type Podcast = {
   slug: string;
   type: "full" | "trailer" | "bonus";
   title: string;
-  audio: string;
+  audio: Audio;
   image: Image;
   banner: Image;
   episode: number;
   spotify?: string;
   subtitle: string;
-  duration: number;
   explicit: boolean;
   publication: Date;
   description: string;
-  enclosure: {
-    url: string;
-    type: string;
-    length: number;
-  };
 };
 
 export type Links = {

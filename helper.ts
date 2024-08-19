@@ -59,7 +59,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
 
-    const { duration, size, audio } = podcastParsed;
+    const { audio } = podcastParsed;
 
     const [image, banner] = await Promise.all([
       getImage(podcastParsed.image),
@@ -69,19 +69,12 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const explicit = podcastParsed.explicit === true;
     const publication = new Date(podcastParsed.publication);
 
-    const enclosure = {
-      url: `${process.env.NEXT_PUBLIC_CDN_ZONE}/${audio}`,
-      type: "audio/mpeg",
-      size,
-    };
-
     return {
       ...podcastParsed,
-      banner,
+      audio,
       image,
-      duration,
+      banner,
       explicit,
-      enclosure,
       publication,
     };
   });

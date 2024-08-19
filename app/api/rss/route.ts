@@ -9,8 +9,9 @@ const currentYear = currentDate.getFullYear();
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const cdn = process.env.NEXT_PUBLIC_CDN!;
   const url = process.env.NEXT_PUBLIC_URL!;
+  const cdn = process.env.NEXT_PUBLIC_CDN!;
+  const cdnZone = process.env.NEXT_PUBLIC_CDN_ZONE!;
 
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
@@ -71,23 +72,32 @@ export async function GET() {
   });
 
   podcasts.map((podcast) => {
+    const { zone, size, duration } = podcast.audio;
+
+    const url = `${cdnZone}/${zone}`;
+    const type = "audio/mpeg";
+
     const episodeImage = encodeURIComponent(podcast.image.src);
     const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
 
     feed.item({
       url: `${url}/podcast/${podcast.slug}`,
+      guid: podcast.slug,
       date: podcast.publication,
       title: podcast.title,
       description: podcast.description,
-      enclosure: podcast.enclosure,
-      guid: podcast.slug,
+      enclosure: {
+        url,
+        type,
+        size,
+      },
       custom_elements: [
         { link: `${url}/podcast/${podcast.slug}` },
         { pubDate: podcast.publication },
         { "itunes:title": podcast.title },
         { "itunes:episode": podcast.episode },
         { "itunes:explicit": podcast.explicit },
-        { "itunes:duration": podcast.duration },
+        { "itunes:duration": duration },
         { "itunes:episodeType": podcast.type },
         {
           "itunes:image": {

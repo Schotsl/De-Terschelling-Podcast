@@ -1,13 +1,15 @@
 {
-  "size": 35739904,
   "slug": "monopolie-op-de-brandaris",
   "publication": "2024-08-19T10:00:00.000Z",
   "banner": {
     "alt": "Een sweater met de tekst 'Terschelling' erop.",
     "src": "/content/podcast/banner/IMG_1177-1200x630.png"
   },
-  "duration": 1488,
-  "audio": "monopolie-op-de-brandaris.mp3",
+  "audio": {
+    "zone": "monopolie-op-de-brandaris.mp3",
+    "size": 35739904,
+    "duration": 1488
+  },
   "subtitle": "In deze aflevering bespreken we de oudste vuurtoren van Nederland, de Brandaris.",
   "title": "Monopolie op de Brandaris",
   "spotify": "4Q4geqtQ5BCBk8cT3xeNUd",

@@ -35,7 +35,7 @@ function InfoPodcast({ podcast }: InfoPodcast) {
 
       <li className={styles.info__item}>•</li>
       <li className={styles.info__item}>
-        {roundNumber(podcast.duration / 60)} min
+        {roundNumber(podcast.audio.duration / 60)} min
       </li>
 
       <li className={styles.info__item}>•</li>

@@ -117,7 +117,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
   );
 
   // Order the podcasts by episode number
-  const podcastsObjectsOrdered = podcastsObjectsFiltered.sort(
+  const podcastsObjectsOrdered = podcastsObjects.sort(
     (a, b) => a.episode - b.episode
   );
 

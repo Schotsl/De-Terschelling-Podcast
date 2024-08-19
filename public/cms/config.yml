@@ -102,9 +102,14 @@ collections:
       - { name: "description", label: "Description", widget: "text" }
       - { name: "publication", label: "Publication date", widget: "datetime" }
 
-      - { name: "size", label: "Size", widget: "number" }
-      - { name: "audio", label: "Audio", widget: "string" }
-      - { name: "duration", label: "Duration", widget: "number" }
+      - name: "audio"
+        label: "Audio"
+        widget: "object"
+        summary: "{{fields.audio}}"
+        fields:
+          - { name: "size", label: "Size", widget: "number" }
+          - { name: "audio", label: "Audio", widget: "string" }
+          - { name: "duration", label: "Duration", widget: "number" }
 
       - {
           name: "explicit",
@@ -136,5 +141,20 @@ collections:
               choose_url: false,
               media_folder: "/public/content/podcast/cover",
               public_folder: "/content/podcast/cover",
+              allow_multiple: false,
+            }
+      - name: "banner"
+        label: "Banner"
+        widget: "object"
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: "alt", label: "Alt", widget: "string" }
+          - {
+              name: "src",
+              label: "Image",
+              widget: "image",
+              choose_url: false,
+              media_folder: "/public/content/podcast/banner",
+              public_folder: "/content/podcast/banner",
               allow_multiple: false,
             }

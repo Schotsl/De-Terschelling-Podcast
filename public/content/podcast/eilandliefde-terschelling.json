@@ -1,9 +1,13 @@
 {
+  "size": 29778048,
   "slug": "eilandliefde-terschelling",
   "publication": "2024-07-08T10:00:00.000Z",
-  "audio": "eilandliefde-terschelling.mp3",
+  "banner": {
+    "alt": "Een sweater met de tekst 'I love Terschelling' erop.",
+    "src": "/content/podcast/banner/IMG_1178-1200x630.png"
+  },
   "duration": 1241,
-  "size": 29778048,
+  "audio": "eilandliefde-terschelling.mp3",
   "subtitle": "Een introductie tot de Terschellinger saga.",
   "title": "Eilandliefde Terschelling",
   "spotify": "2sTyjGnuU1Yfy8yreT7fDU",

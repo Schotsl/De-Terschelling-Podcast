@@ -32,7 +32,9 @@ export async function generateMetadata({
     description,
     openGraph: {
       url,
+      type: "website",
       title,
+      locale: "nl_NL",
       siteName: title,
       images: [
         {

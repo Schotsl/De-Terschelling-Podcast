@@ -21,9 +21,40 @@ export async function generateMetadata({
   const podcasts = await getPodcasts();
   const podcast = podcasts.find((podcast) => podcast.slug === params.slug)!;
 
+  const title = `${podcast.title} - ${content.title}`;
+  const description = podcast.description;
+
+  const url = `${process.env.NEXT_PUBLIC_URL}/${podcast.banner.src}`;
+  const alt = podcast.banner.alt;
+
   return {
-    title: `${podcast.title} - ${content.title}`,
-    description: podcast.description,
+    title,
+    description,
+    openGraph: {
+      url,
+      title,
+      siteName: title,
+      images: [
+        {
+          url,
+          alt,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      description,
+    },
+
+    twitter: {
+      images: [
+        {
+          url,
+          alt,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
   };
 }
 

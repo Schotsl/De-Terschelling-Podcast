@@ -17,6 +17,7 @@ export type Podcast = {
   title: string;
   audio: string;
   image: Image;
+  banner: Image;
   episode: number;
   spotify?: string;
   subtitle: string;

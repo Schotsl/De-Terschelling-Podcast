@@ -89,18 +89,23 @@ export async function getPodcasts(): Promise<Podcast[]> {
 
     const { duration, size, audio } = podcastParsed;
 
-    const image = await getImage(podcastParsed.image);
+    const [image, banner] = await Promise.all([
+      getImage(podcastParsed.image),
+      getImage(podcastParsed.banner),
+    ]);
+
     const explicit = podcastParsed.explicit === true;
     const publication = new Date(podcastParsed.publication);
 
     const enclosure = {
-      url: `https://de-terschelling-podcast-zone.b-cdn.net/${podcastParsed.audio}`,
+      url: `https://de-terschelling-podcast-zone.b-cdn.net/${audio}`,
       type: "audio/mpeg",
       size,
     };
 
     return {
       ...podcastParsed,
+      banner,
       image,
       duration,
       explicit,

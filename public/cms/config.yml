@@ -101,15 +101,11 @@ collections:
         }
       - { name: "description", label: "Description", widget: "text" }
       - { name: "publication", label: "Publication date", widget: "datetime" }
-      - {
-          name: "audio",
-          label: "Audio",
-          widget: "file",
-          choose_url: false,
-          media_folder: "/public/content/podcast/audio",
-          public_folder: "/content/podcast/audio",
-          allow_multiple: false,
-        }
+
+      - { name: "size", label: "Size", widget: "number" }
+      - { name: "audio", label: "Audio", widget: "string" }
+      - { name: "duration", label: "Duration", widget: "number" }
+
       - {
           name: "explicit",
           label: "Explicit",

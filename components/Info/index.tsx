@@ -25,7 +25,7 @@ function InfoPodcast({ podcast }: InfoPodcast) {
   const date = podcast.publication;
   const dateFormatted = new Date(date).toLocaleDateString("nl-NL", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   });
 
@@ -35,7 +35,7 @@ function InfoPodcast({ podcast }: InfoPodcast) {
 
       <li className={styles.info__item}>•</li>
       <li className={styles.info__item}>
-        {roundNumber(podcast.duration / 60)} minuten
+        {roundNumber(podcast.duration / 60)} min
       </li>
 
       <li className={styles.info__item}>•</li>

@@ -1,0 +1,22 @@
+{
+  "slug": "terschellinger-vloeibaar-genot",
+  "publication": "2024-09-02T14:00:00.000Z",
+  "banner": {
+    "src": "/content/podcast/banner/IMG_1176-1200x630.png",
+    "alt": "Een sweater met de tekst 'Terschelling' erop."
+  },
+  "audio": {
+    "zone": "Zone",
+    "size": 1,
+    "duration": 1
+  },
+  "subtitle": "Subtitle",
+  "title": "Terschellinger vloeibaar genot",
+  "type": "full",
+  "image": {
+    "src": "/content/podcast/cover/IMG_1176.png",
+    "alt": "Een sweater met de tekst 'Terschelling' erop."
+  },
+  "episode": 4,
+  "description": "Description"
+}

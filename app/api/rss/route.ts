@@ -74,8 +74,8 @@ export async function GET() {
   podcasts.map((podcast) => {
     const { zone, size, duration } = podcast.audio;
 
-    const url = `${cdnZone}/${zone}`;
-    const type = "audio/mpeg";
+    const audioUrl = `${cdnZone}/${zone}`;
+    const audioType = "audio/mpeg";
 
     const episodeImage = encodeURIComponent(podcast.image.src);
     const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
@@ -87,8 +87,8 @@ export async function GET() {
       title: podcast.title,
       description: podcast.description,
       enclosure: {
-        url,
-        type,
+        url: audioUrl,
+        type: audioType,
         size,
       },
       custom_elements: [

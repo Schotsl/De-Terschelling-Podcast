@@ -118,12 +118,6 @@ collections:
         widget: "object"
         fields:
           - {
-              name: "spotify",
-              label: "Spotify ID",
-              widget: "string",
-              required: false,
-            }
-          - {
               name: "status",
               label: "Status",
               widget: "select",
@@ -133,6 +127,12 @@ collections:
                   { label: "Published", value: "published" },
                   { label: "Archived", value: "archived" },
                 ],
+            }
+          - {
+              name: "spotify",
+              label: "Spotify ID",
+              widget: "string",
+              required: false,
             }
 
       - name: "audio"

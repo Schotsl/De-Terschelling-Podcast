@@ -12,7 +12,10 @@
   },
   "subtitle": "We bespreken de vloeibare streekproducten van Terschelling. ",
   "title": "Terschellinger vloeibaar genot",
-  "spotify": "5VJEgXHUfpEbiVRTVHNwCN",
+  "publishing": {
+    "spotify": "5VJEgXHUfpEbiVRTVHNwCN",
+    "status": "published"
+  },
   "type": "full",
   "image": {
     "src": "/content/podcast/cover/IMG_1176_1.png",

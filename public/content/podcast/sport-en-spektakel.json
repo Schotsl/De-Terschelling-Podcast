@@ -12,7 +12,9 @@
   },
   "subtitle": "Het sportieve tweede deel van de reeks.",
   "title": "Sport en Spektakel",
-  "spotify": "1gGaiD4REyeYltxKmbmnDT",
+  "publishing": {
+    "status": "archived"
+  },
   "type": "full",
   "image": {
     "src": "/content/podcast/cover/IMG_1179.png",

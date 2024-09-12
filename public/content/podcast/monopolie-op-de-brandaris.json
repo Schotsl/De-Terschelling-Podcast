@@ -12,7 +12,10 @@
   },
   "subtitle": "In deze aflevering bespreken we de oudste vuurtoren van Nederland, de Brandaris.",
   "title": "Monopolie op de Brandaris",
-  "spotify": "4Q4geqtQ5BCBk8cT3xeNUd",
+  "publishing": {
+    "spotify": "4Q4geqtQ5BCBk8cT3xeNUd",
+    "status": "published"
+  },
   "type": "full",
   "image": {
     "src": "/content/podcast/cover/IMG_1177.png",

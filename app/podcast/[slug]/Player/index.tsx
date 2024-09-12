@@ -61,7 +61,7 @@ export default function PodcastPagePlayer({ podcast }: PodcastPagePlayerProps) {
 
             <AudioPlayer
               autoPlay
-              src={audioUrl}
+              src={audioURL}
               className={styles.podcasts__container__content__player}
             />
           </div>

@@ -50,7 +50,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
-    podcastName.endsWith(".json")
+    podcastName.endsWith(".json"),
   );
 
   const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
@@ -59,7 +59,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
 
-    const { audio } = podcastParsed;
+    const { audio, publishing } = podcastParsed;
 
     const [image, banner] = await Promise.all([
       getImage(podcastParsed.image),
@@ -75,6 +75,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
       image,
       banner,
       explicit,
+      publishing,
       publication,
     };
   });
@@ -83,12 +84,12 @@ export async function getPodcasts(): Promise<Podcast[]> {
 
   // Filter the podcasts that are published
   const podcastsObjectsFiltered = podcastsObjects.filter(
-    (podcast) => podcast.publication <= current
+    (podcast) => podcast.publication <= current,
   );
 
   // Order the podcasts by episode number
   const podcastsObjectsOrdered = podcastsObjectsFiltered.sort(
-    (a, b) => b.episode - a.episode
+    (a, b) => b.episode - a.episode,
   );
 
   return podcastsObjectsOrdered;

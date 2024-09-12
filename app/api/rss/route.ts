@@ -71,44 +71,51 @@ export async function GET() {
     ],
   });
 
-  podcasts.map((podcast) => {
-    const { zone, size, duration } = podcast.audio;
+  podcasts
+    // Filter out the unpublished podcasts
+    .filter((podcast) => {
+      const { status } = podcast.publishing;
+      return status === "published";
+    })
+    // Add the published podcasts to the RSS feed
+    .map((podcast) => {
+      const { zone, size, duration } = podcast.audio;
 
-    const audioUrl = `${cdnZone}/${zone}`;
-    const audioType = "audio/mpeg";
+      const audioUrl = `${cdnZone}/${zone}`;
+      const audioType = "audio/mpeg";
 
-    const episodeImage = encodeURIComponent(podcast.image.src);
-    const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
+      const episodeImage = encodeURIComponent(podcast.image.src);
+      const episodeImageResized = `${cdn}/_next/image?url=${episodeImage}&w=1920&q=75`;
 
-    feed.item({
-      url: `${url}/podcast/${podcast.slug}`,
-      guid: podcast.slug,
-      date: podcast.publication,
-      title: podcast.title,
-      description: podcast.description,
-      enclosure: {
-        url: audioUrl,
-        type: audioType,
-        size,
-      },
-      custom_elements: [
-        { link: `${url}/podcast/${podcast.slug}` },
-        { pubDate: podcast.publication },
-        { "itunes:title": podcast.title },
-        { "itunes:episode": podcast.episode },
-        { "itunes:explicit": podcast.explicit },
-        { "itunes:duration": duration },
-        { "itunes:episodeType": podcast.type },
-        {
-          "itunes:image": {
-            _attr: {
-              href: episodeImageResized,
+      feed.item({
+        url: `${url}/podcast/${podcast.slug}`,
+        guid: podcast.slug,
+        date: podcast.publication,
+        title: podcast.title,
+        description: podcast.description,
+        enclosure: {
+          url: audioUrl,
+          type: audioType,
+          size,
+        },
+        custom_elements: [
+          { link: `${url}/podcast/${podcast.slug}` },
+          { pubDate: podcast.publication },
+          { "itunes:title": podcast.title },
+          { "itunes:episode": podcast.episode },
+          { "itunes:explicit": podcast.explicit },
+          { "itunes:duration": duration },
+          { "itunes:episodeType": podcast.type },
+          {
+            "itunes:image": {
+              _attr: {
+                href: episodeImageResized,
+              },
             },
           },
-        },
-      ],
+        ],
+      });
     });
-  });
 
   return new Response(feed.xml({ indent: true }), {
     headers: {

@@ -121,9 +121,9 @@ collections:
               name: "status",
               label: "Status",
               widget: "select",
+              default: "published",
               options:
                 [
-                  { label: "Processing", value: "processing" },
                   { label: "Published", value: "published" },
                   { label: "Archived", value: "archived" },
                 ],

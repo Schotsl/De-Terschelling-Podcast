@@ -10,14 +10,26 @@
     padding: 2rem 0 0;
   }
 
-  &__embed {
-    border: none;
-    height: 352px;
-    border-radius: 1rem;
-  }
+  &__container {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
 
-  &__warning {
-    margin: -1rem 0 0;
-    max-width: 65ch;
+    &__embed {
+      border: none;
+      height: 352px;
+      border-radius: 1rem;
+    }
+
+    &__player {
+      padding: 2rem !important;
+      box-shadow: none !important;
+      border-radius: 1rem;
+    }
+
+    &__content {
+      margin: -1rem 0 0;
+      max-width: 65ch;
+    }
   }
 }

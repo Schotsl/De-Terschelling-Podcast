@@ -93,12 +93,6 @@ collections:
       - { name: "slug", label: "Slug", widget: "string" }
       - { name: "episode", label: "Episode", widget: "number" }
       - { name: "subtitle", label: "Subtitle", widget: "string" }
-      - {
-          name: "spotify",
-          label: "Spotify ID",
-          widget: "string",
-          required: false,
-        }
       - { name: "description", label: "Description", widget: "text" }
       - { name: "publication", label: "Publication date", widget: "datetime" }
       - {
@@ -118,6 +112,28 @@ collections:
               { label: "Bonus", value: "bonus" },
             ],
         }
+
+      - name: "publishing"
+        label: "Publishing"
+        widget: "object"
+        fields:
+          - {
+              name: "spotify",
+              label: "Spotify ID",
+              widget: "string",
+              required: false,
+            }
+          - {
+              name: "status",
+              label: "Status",
+              widget: "select",
+              options:
+                [
+                  { label: "Processing", value: "processing" },
+                  { label: "Published", value: "published" },
+                  { label: "Archived", value: "archived" },
+                ],
+            }
 
       - name: "audio"
         label: "Audio"

@@ -3,7 +3,7 @@
   "publication": "2024-09-16T10:00:00.000Z",
   "banner": {
     "alt": "Een sweater met de tekst 'Terschelling' erop.",
-    "src": "/content/podcast/banner/IMG_1174-1200x630.png"
+    "src": "/content/podcast/banner/IMG_1175-1200x630.png"
   },
   "publishing": {
     "status": "published"
@@ -11,13 +11,13 @@
   "audio": {
     "zone": "de-toegang-tot-terschelling.mp3",
     "duration": 1554,
-    "size": 37367760
+    "size": 37367765
   },
   "subtitle": "Een jubileumviering met veerboten, rectificaties en ratten!",
   "title": "De toegang tot Terschelling",
   "type": "full",
   "image": {
-    "src": "/content/podcast/cover/IMG_1174.png",
+    "src": "/content/podcast/cover/IMG_1175.png",
     "alt": "Een sweater met de tekst 'Terschelling' erop."
   },
   "episode": 5,

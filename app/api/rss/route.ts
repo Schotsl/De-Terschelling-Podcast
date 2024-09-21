@@ -6,13 +6,13 @@ import { getPodcasts } from "@/helper";
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
-export const dynamic = "force-dynamic";
+export const dynamic = "static";
+
+const url = process.env.NEXT_PUBLIC_URL!;
+const cdn = process.env.NEXT_PUBLIC_CDN!;
+const cdnZone = process.env.NEXT_PUBLIC_CDN_ZONE!;
 
 export async function GET() {
-  const url = process.env.NEXT_PUBLIC_URL!;
-  const cdn = process.env.NEXT_PUBLIC_CDN!;
-  const cdnZone = process.env.NEXT_PUBLIC_CDN_ZONE!;
-
   // Fetch the podcasts from the local JSON files
   const podcasts = await getPodcasts();
   const categories = home.categories.map((text) => {

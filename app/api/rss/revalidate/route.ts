@@ -15,4 +15,6 @@ export async function POST() {
   }
 
   revalidatePath("/api/rss");
+
+  return new Response("{}", { status: 200 });
 }

@@ -6,7 +6,7 @@ import { getPodcasts } from "@/helper";
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
-export const dynamic = "static";
+export const dynamic = "force-static";
 
 const url = process.env.NEXT_PUBLIC_URL!;
 const cdn = process.env.NEXT_PUBLIC_CDN!;

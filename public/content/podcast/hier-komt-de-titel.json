@@ -1,0 +1,25 @@
+{
+  "slug": "hier-komt-de-titel-zonder-hoofdletters-en-strepen-ipv-spaties",
+  "publication": "2024-09-30T10:00:00.000Z",
+  "banner": {
+    "src": "/content/podcast/banner/IMG_1173-1200x630.png",
+    "alt": "Een sweater met de tekst 'Terschelling' erop."
+  },
+  "publishing": {
+    "status": "published"
+  },
+  "audio": {
+    "zone": "bestand.mp3",
+    "size": 0,
+    "duration": 0
+  },
+  "subtitle": "Hier komt de subtitel",
+  "title": "Hier komt de titel",
+  "type": "full",
+  "image": {
+    "src": "/content/podcast/cover/IMG_1173.png",
+    "alt": "Een sweater met de tekst 'Terschelling' erop."
+  },
+  "episode": 6,
+  "description": "Hier komt de beschrijving"
+}

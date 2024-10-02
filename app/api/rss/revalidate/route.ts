@@ -14,7 +14,7 @@ export async function POST() {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  revalidatePath("/api/rss");
+  revalidatePath("/");
 
   return new Response("{}", { status: 200 });
 }

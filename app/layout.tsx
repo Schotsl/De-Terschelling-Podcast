@@ -30,6 +30,7 @@ const alt = "Timo en Sjors voor fotobehang van de Brandaris";
 
 const { title, description } = content;
 
+export const dynamic = "force-static";
 export const metadata: Metadata = {
   title,
   description,

@@ -1,0 +1,32 @@
+.transcript {
+  gap: 2rem;
+  width: var(--page-content-width);
+  display: flex;
+  padding: var(--page-content-spacing) 0 0;
+  flex-direction: column;
+
+  &__title {
+    margin: -2rem 0 0;
+    padding: 2rem 0 0;
+  }
+
+  &__content {
+    gap: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    border-radius: 1rem;
+    background: #fff;
+    flex-direction: column;
+
+    &__line {
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+
+      &__speaker {
+        font-weight: 600;
+      }
+    }
+  }
+}

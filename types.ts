@@ -32,6 +32,8 @@ export type Podcast = {
   episode: number;
   subtitle: string;
   explicit: boolean;
+  updated: Date;
+  transcript?: string;
   publishing: Publishing;
   publication: Date;
   description: string;

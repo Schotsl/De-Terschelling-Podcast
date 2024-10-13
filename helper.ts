@@ -59,7 +59,16 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
 
-    const { audio, publishing } = podcastParsed;
+    const { audio, publishing, transcript } = podcastParsed;
+
+    let transcriptContent: string | undefined;
+
+    if (transcript) {
+      const transcriptPath = `${podcastsPath}/${transcript}`;
+      const transcriptObject = fs.readFileSync(transcriptPath, "utf8");
+
+      transcriptContent = transcriptObject;
+    }
 
     const [image, banner] = await Promise.all([
       getImage(podcastParsed.image),
@@ -67,6 +76,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
     ]);
 
     const explicit = podcastParsed.explicit === true;
+    const updated = new Date(podcastParsed.updated);
     const publication = new Date(podcastParsed.publication);
 
     return {
@@ -75,6 +85,8 @@ export async function getPodcasts(): Promise<Podcast[]> {
       image,
       banner,
       explicit,
+      updated,
+      transcript: transcriptContent,
       publishing,
       publication,
     };

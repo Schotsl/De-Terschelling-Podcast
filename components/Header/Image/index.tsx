@@ -12,6 +12,7 @@ export default function HeaderImage({ image }: HeaderImageProps) {
     <Image
       image={image}
       sizes={"(min-width: 48rem) 22rem, 100vw"}
+      priority={true}
       className={styles.image}
     />
   );

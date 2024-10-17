@@ -34,6 +34,7 @@ export default function Header({
       <Image
         image={banner}
         sizes="50vw"
+        priority={true}
         className={styles.banner__background}
       />
 

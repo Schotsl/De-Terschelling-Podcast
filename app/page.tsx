@@ -1,4 +1,5 @@
-import { getPodcasts, getImage } from "@/helper";
+import { podcastService } from "@/service/podcastService";
+import { imageService } from "@/service/imageService";
 
 import content from "@/public/content/pages/home/index.json";
 
@@ -8,9 +9,9 @@ import Podcasts from "@/components/Podcasts";
 export const revalidate = 3600;
 
 export default async function Page() {
-  const promiseImage = getImage(content.image);
-  const promiseHeader = getImage(content.banner);
-  const promiseBodcasts = getPodcasts();
+  const promiseImage = imageService.getImage(content.image);
+  const promiseHeader = imageService.getImage(content.banner);
+  const promiseBodcasts = podcastService.getPodcasts();
 
   const [image, banner, podcasts] = await Promise.all([
     promiseImage,

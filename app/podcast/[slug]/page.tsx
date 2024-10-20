@@ -1,4 +1,4 @@
-import { getImage, getPodcasts } from "@/helper";
+import { podcastService } from "@/service/podcastService";
 
 import Header from "@/components/Header";
 import content from "@/public/content/pages/home/index.json";
@@ -6,7 +6,7 @@ import PodcastPagePlayer from "./Player";
 import PodcastPageTranscript from "./Transcript";
 
 export async function generateStaticParams() {
-  const podcasts = await getPodcasts();
+  const podcasts = await podcastService.getPodcasts();
   const podcastsSlugs = podcasts.map((podcast) => ({
     slug: podcast.slug,
   }));
@@ -19,7 +19,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const podcasts = await getPodcasts();
+  const podcasts = await podcastService.getPodcasts();
   const podcast = podcasts.find((podcast) => podcast.slug === params.slug)!;
 
   const title = `${podcast.title} - ${content.title}`;
@@ -66,8 +66,8 @@ export default async function PodcastPage({
 }: {
   params: { slug: string };
 }) {
-  const banner = await getImage(content.banner);
-  const podcasts = await getPodcasts();
+  // const banner = await getImage(content.banner);
+  const podcasts = await podcastService.getPodcasts();
   const podcast = podcasts.find((podcast) => podcast.slug === params.slug)!;
 
   return (
@@ -76,7 +76,7 @@ export default async function PodcastPage({
         links={content.links}
         image={podcast.image}
         title={podcast.title}
-        banner={banner}
+        banner={podcast.banner}
         podcast={podcast}
         breadcrumbs={[
           { title: "Podcasts", href: "/#podcasts" },

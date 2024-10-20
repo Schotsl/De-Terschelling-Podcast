@@ -44,13 +44,25 @@ export async function getImage({
   };
 }
 
+export async function getTranscript(path: string): Promise<string | null> {
+  const transcriptPath = `${process.cwd()}/public/${path}`;
+  const transcriptExists = fs.existsSync(transcriptPath);
+
+  if (transcriptExists) {
+    const transcriptObject = fs.readFileSync(transcriptPath, "utf8");
+    return transcriptObject;
+  }
+
+  return null;
+}
+
 export async function getPodcasts(): Promise<Podcast[]> {
   const current = new Date();
 
   const podcastsPath = `${process.cwd()}/public/content/podcast`;
   const podcastsNames = fs.readdirSync(podcastsPath);
   const podcastsFiltered = podcastsNames.filter((podcastName) =>
-    podcastName.endsWith(".json"),
+    podcastName.endsWith(".json")
   );
 
   const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
@@ -59,20 +71,12 @@ export async function getPodcasts(): Promise<Podcast[]> {
     const podcastObject = fs.readFileSync(podcastPath, "utf8");
     const podcastParsed = JSON.parse(podcastObject);
 
-    const { audio, publishing, transcript } = podcastParsed;
+    const { audio, publishing } = podcastParsed;
 
-    let transcriptContent: string | undefined;
-
-    if (transcript) {
-      const transcriptPath = `${podcastsPath}/${transcript}`;
-      const transcriptObject = fs.readFileSync(transcriptPath, "utf8");
-
-      transcriptContent = transcriptObject;
-    }
-
-    const [image, banner] = await Promise.all([
+    const [image, banner, transcript] = await Promise.all([
       getImage(podcastParsed.image),
       getImage(podcastParsed.banner),
+      getTranscript(podcastParsed.transcript),
     ]);
 
     const explicit = podcastParsed.explicit === true;
@@ -86,7 +90,7 @@ export async function getPodcasts(): Promise<Podcast[]> {
       banner,
       explicit,
       updated,
-      transcript: transcriptContent,
+      transcript,
       publishing,
       publication,
     };
@@ -96,12 +100,12 @@ export async function getPodcasts(): Promise<Podcast[]> {
 
   // Filter the podcasts that are published
   const podcastsObjectsFiltered = podcastsObjects.filter(
-    (podcast) => podcast.publication <= current,
+    (podcast) => podcast.publication <= current
   );
 
   // Order the podcasts by episode number
   const podcastsObjectsOrdered = podcastsObjectsFiltered.sort(
-    (a, b) => b.episode - a.episode,
+    (a, b) => b.episode - a.episode
   );
 
   return podcastsObjectsOrdered;

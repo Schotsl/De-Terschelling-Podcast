@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...podcasts.map((podcast) => ({
       url: `${process.env.NEXT_PUBLIC_URL}/podcast/${podcast.slug}`,
-      priority: 0.5,
+      priority: 1,
       lastModified: podcast.updated,
       changeFrequency: "monthly" as "monthly",
     })),

@@ -1,14 +1,15 @@
 {
   "slug": "terug-naar-terschelling",
-  "updated": "2024-10-14:00:00.000Z",
+  "updated": "2024-10-17:00:00.000Z",
   "publication": "2024-10-14T10:00:00.000Z",
   "banner": {
     "alt": "Een sweater met de tekst 'Terschelling' erop.",
     "src": "/content/podcast/banner/IMG_1174-1200x630.png"
   },
+  "transcript": "/transcript/terug-naar-terschelling.txt",
   "publishing": {
     "status": "published",
-    "spotify": ""
+    "spotify": "29z9xqpRdPHeJSQ0d5hrKg"
   },
   "audio": {
     "duration": 1436

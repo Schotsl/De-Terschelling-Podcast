@@ -7,7 +7,7 @@ class PodcastService {
   private podcastCache: Podcast[] | null = null;
 
   private async getTranscript(path: string): Promise<string | null> {
-    const transcriptPath = `${process.cwd()}/public/${path}`;
+    const transcriptPath = `${process.cwd()}/public/content/podcast${path}`;
     const transcriptExists = fs.existsSync(transcriptPath);
 
     if (transcriptExists) {
@@ -26,7 +26,7 @@ class PodcastService {
     const podcastsPath = `${process.cwd()}/public/content/podcast`;
     const podcastsNames = fs.readdirSync(podcastsPath);
     const podcastsFiltered = podcastsNames.filter((podcastName) =>
-      podcastName.endsWith(".json"),
+      podcastName.endsWith(".json")
     );
 
     const podcastsPromises = podcastsFiltered.map(async (podcastName) => {
@@ -63,11 +63,11 @@ class PodcastService {
     const podcastsObjects = await Promise.all(podcastsPromises);
 
     const podcastsObjectsFiltered = podcastsObjects.filter(
-      (podcast) => podcast.publication <= new Date(),
+      (podcast) => podcast.publication <= new Date()
     );
 
     const podcastsObjectsOrdered = podcastsObjectsFiltered.sort(
-      (a, b) => b.episode - a.episode,
+      (a, b) => b.episode - a.episode
     );
 
     this.podcastCache = podcastsObjectsOrdered;

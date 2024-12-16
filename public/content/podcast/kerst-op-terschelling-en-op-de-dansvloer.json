@@ -6,7 +6,8 @@
     "src": "/content/podcast/banner/IMG_1185-1200x630.png"
   },
   "publishing": {
-    "status": "published"
+    "status": "published",
+    "spotify": "1r6b6rfcwIzkNncSPqg3lH",
   },
   "audio": {
     "zone": "0",
